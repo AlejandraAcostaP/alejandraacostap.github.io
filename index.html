@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alejandra Acosta</title>
-<meta name="description" content="Alejandra Acosta, MASc researcher in Engineering Physics at McMaster University: positron annihilation spectroscopy and radiation damage in nuclear reactor steels.">
+<meta name="description" content="Alejandra Acosta, positron and nuclear materials physicist and MASc researcher in Engineering Physics at McMaster University: positron annihilation spectroscopy and radiation damage in reactor materials.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alejandraacostap.github.io/">
+<meta property="og:title" content="Alejandra Acosta · Positron & nuclear materials physicist">
+<meta property="og:description" content="MASc researcher at McMaster University: radiation damage, positron annihilation spectroscopy (PAS/PALS), Python and Geant4.">
+<meta property="og:image" content="https://alejandraacostap.github.io/images/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://alejandraacostap.github.io/"><link rel="alternate" hreflang="es" href="https://alejandraacostap.github.io/es/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B47D6'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='white'%3Ee%2B%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +95,32 @@ nav a:hover{color:var(--violet)}
 .play .gamma{animation:fadein .5s ease-out 2s both}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion: reduce){.play *{animation:none!important}}
+
+.name-row{display:flex;align-items:center;gap:22px;margin:0 0 14px}
+.name-row h1{margin:0}
+.me{width:124px;height:124px;border-radius:50%;object-fit:cover;flex:none;border:5px solid var(--surface);box-shadow:0 16px 34px -18px rgba(60,45,160,.55)}
+@media (max-width:560px){.me{width:92px;height:92px}.name-row{gap:16px}}
+nav a.lang{color:var(--violet);font-weight:700;border:1px solid var(--rule);border-radius:8px;padding:2px 8px}
+ul.chips{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+ul.chips li{font-size:.92rem;background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:6px 14px}
+.path p{max-width:62ch}
+ol.steps{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:s}
+ol.steps li{position:relative;padding:14px 12px 12px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--violet)}
+ol.steps li:last-child{border-top-color:var(--orange)}
+ol.steps b{display:block;font-size:.98rem}
+ol.steps span{font-size:.85rem;color:var(--muted)}
+@media (max-width:760px){ol.steps{grid-template-columns:1fr 1fr}}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.project{padding:18px 20px}
+.project.wide{grid-column:1/-1}
+.project h3{font-size:1.08rem;margin:2px 0 6px}
+.project p{margin:0 0 8px;font-size:.98rem}
+.project .tag{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);margin:0}
+.project .stack{font-size:.88rem;color:var(--muted);margin:0}
+@media (max-width:760px){.project-grid{grid-template-columns:1fr}}
+.gallery{margin:26px 0 0;padding:12px;max-width:560px}
+.gallery img{display:block;width:100%;height:auto;border-radius:12px}
+.gallery figcaption{font-size:.9rem;color:var(--muted);margin:8px 4px 2px}
 
 /* facts strip */
 .facts{padding:34px 0 8px}
@@ -200,10 +234,13 @@ footer .joke{color:var(--violet);font-weight:600}
     <nav aria-label="Sections">
       <ul>
         <li><a href="#research">Research</a></li>
+        <li><a href="#path">My path</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#talks">Talks</a></li>
         <li><a href="#play">Play</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a class="lang" href="es/" hreflang="es" lang="es">ES</a></li>
       </ul>
     </nav>
   </div>
@@ -213,7 +250,10 @@ footer .joke{color:var(--violet);font-weight:600}
   <div class="wrap">
     <div>
       <p class="hello">Hi, I'm a positron and nuclear materials physicist 👋</p>
-      <h1>Alejandra Acosta</h1>
+      <div class="name-row">
+        <img class="me" src="images/alejandra.jpg" width="480" height="480" alt="Portrait of Alejandra Acosta">
+        <h1>Alejandra Acosta</h1>
+      </div>
       <p class="role">Physicist and MASc researcher in Engineering Physics<br>McMaster University, Hamilton, Canada</p>
       <p class="lede">I use positron annihilation spectroscopy to measure the defects that radiation leaves in candidate materials for small modular and Generation IV reactors.</p>
       <ul class="links">
@@ -286,18 +326,46 @@ footer .joke{color:var(--violet);font-weight:600}
       </svg>
           <figcaption>What I measure: a positron lifetime spectrum. Each slope is one lifetime; positrons trapped in vacancies live longer, so damage shows up as a slower tail.</figcaption>
         </figure>
-        <p class="tools"><b>Tools:</b> Geant4 (C++), SRIM, Python (NumPy, pandas, Matplotlib), MATLAB, Mathematica, R, Git, Linux.</p>
+        <h3 class="group">In the lab</h3>
+        <ul class="chips">
+          <li>Variable-energy Doppler broadening PAS (slow positron beam)</li>
+          <li>Positron lifetime spectroscopy (PALS): building detector bases and sample holder</li>
+          <li>Na-22 positron source preparation</li>
+          <li>Helium ion implantation damage studies</li>
+          <li>Sample preparation: cutting, mounting and polishing</li>
+          <li>Scanning electron microscopy: authorized user at the Canadian Centre for Electron Microscopy</li>
+          <li>Radiation safety and radioactive materials training</li>
+        </ul>
+        <p class="tools"><b>Tools:</b> Python (NumPy, pandas, Matplotlib), Geant4 (C++), SRIM, MATLAB, Mathematica, R, SQL, Git, Linux, AWS.</p>
       </div>
     </div>
   </section>
 
-  <section id="experience" class="alt">
+  <section id="path" class="alt">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">→</span><br>My path</h2>
+      <div class="body path">
+        <p>I grew up in Soacha, Colombia, and went to a public school, Institución Educativa San Mateo. I am the first in my family to go to university.</p>
+        <p>I started in sociology at Universidad Nacional de Colombia, then switched to physics, and learned English along the way. In 2023 a Mitacs Globalink internship brought me to McMaster for the first time, to learn positron annihilation spectroscopy.</p>
+        <p>In 2025 I came back as an ELAP scholar with my own proposal: use positrons to study radiation damage in reactor steels. That project opened a new research line in our group, became my undergraduate thesis, and took me to NuMat 2026 in Halifax. Today I continue that work as a MASc student.</p>
+        <ol class="steps">
+          <li><b>Soacha</b><span>Public school</span></li>
+          <li><b>UNAL</b><span>Sociology → Physics</span></li>
+          <li><b>Mitacs 2023</b><span>First positrons</span></li>
+          <li><b>ELAP 2025</b><span>My own project</span></li>
+          <li><b>MASc 2026</b><span>McMaster</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">Δt</span><br>Experience</h2>
       <div class="body">
         <h3 class="group">Research and teaching</h3>
         <ol class="timeline">
-          <li class="now"><div class="when">2026 – present</div><div class="what"><h3>Graduate Researcher (MASc)</h3><p class="where">McMaster University, Engineering Physics</p><p>Measure radiation-induced defects in candidate materials for SMRs and Generation IV reactors with positron annihilation spectroscopy (PAS/PALS), analyze the data in Python, and compare with Geant4 and SRIM damage simulations. Funded by NSERC and the CNSC.</p></div></li>
+          <li class="now"><div class="when">2026 – present</div><div class="what"><h3>Graduate Researcher (MASc)</h3><p class="where">McMaster University, Engineering Physics</p><p>Measure radiation-induced defects in candidate materials for SMRs and Generation IV reactors with positron annihilation spectroscopy (PAS/PALS), analyze the data in Python, and compare with Geant4 and SRIM damage simulations. Trained a Mitacs Globalink research intern for 10 weeks. Funded by NSERC and the CNSC.</p></div></li>
           <li class="now"><div class="when">2026 – present</div><div class="what"><h3>Teaching Assistant</h3><p class="where">McMaster University, Thermal System Design</p><p>Lead tutorials, hold office hours and grade assignments and exams for 170 undergraduate Engineering Physics students.</p></div></li>
           <li><div class="when">Aug – Dec 2025</div><div class="what"><h3>Research Student, ELAP Scholar</h3><p class="where">McMaster University, Engineering Physics</p><p>Introduced displacement damage in 304 stainless steel by 50 keV helium ion implantation at several fluences; built a depth-resolved defect profile with variable-energy Doppler broadening PAS (S and W parameters); compared the measurements with SRIM and Geant4 simulations. This work became my undergraduate thesis.</p></div></li>
           <li><div class="when">May – Aug 2023</div><div class="what"><h3>Mitacs Research Intern</h3><p class="where">McMaster University, Positron Annihilation Group</p><p>Positron annihilation spectroscopy of thin film structures: experimental setup, measurements and data analysis; presented results at poster showcases.</p></div></li>
@@ -308,6 +376,21 @@ footer .joke{color:var(--violet);font-weight:600}
         <ol class="timeline">
           <li><div class="when">May 2024 – Aug 2025</div><div class="what"><h3>Mentor and Delivery Support Associate (SDS)</h3><p class="where">Amazon, Bogotá, Colombia</p><p>Built an internal AI assistant, based on Claude, used by more than 100 associates to find procedures; led onboarding and training workshops; gave bilingual support to US and Mexico operations.</p></div></li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="alt">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">{ }</span><br>Projects</h2>
+      <div class="body">
+        <div class="project-grid">
+          <article class="card project"><p class="tag">Amazon · 2025</p><h3>AI knowledge assistant</h3><p>Built an internal chatbot on Claude (Anthropic LLM) that more than 100 associates used to find procedures faster.</p><p class="stack">LLMs · Claude · knowledge tools</p></article>
+          <article class="card project"><p class="tag">Research · 2025 – present</p><h3>Positron data analysis in Python</h3><p>Pipelines to process, fit and interpret Doppler broadening and lifetime spectra, and to compare them with SRIM and Geant4 damage simulations.</p><p class="stack">Python · NumPy · pandas · Matplotlib</p></article>
+          <article class="card project"><p class="tag">AWS re/Start · 2026</p><h3>Cloud architecture for a delivery company</h3><p>Highly available real-time package tracking: CloudFront and Route 53, a load balancer with EC2 Auto Scaling, event-driven updates with Lambda and SNS/SQS, least-privilege IAM and CloudWatch alarms.</p><p class="stack">AWS · Linux · Python SDK</p></article>
+          <article class="card project"><p class="tag">Power BI · 2026</p><h3>Sales and inventory analytics</h3><p>Interactive dashboard on a relational model with revenue and profitability KPIs; data cleaned with Power Query, tasks automated with VBA, sales optimized with Solver.</p><p class="stack">Power BI · Excel · VBA</p></article>
+          <article class="card project wide"><p class="tag">This website · 2026</p><h3>Hand-built portfolio with a positron game</h3><p>Plain HTML, CSS and JavaScript on GitHub Pages, including the <a href="#play">positron beam game</a>, which uses the real Makhov implantation profile for steel.</p><p class="stack">HTML · CSS · JavaScript · <a href="https://github.com/AlejandraAcostaP/alejandraacostap.github.io">source on GitHub</a></p></article>
+        </div>
       </div>
     </div>
   </section>
@@ -326,7 +409,7 @@ footer .joke{color:var(--violet);font-weight:600}
 
   <section id="talks" class="alt">
     <div class="wrap sec">
-      <h2><span class="sym" aria-hidden="true">γ</span><br>Talks and writing</h2>
+      <h2><span class="sym" aria-hidden="true">γ</span><br>Talks</h2>
       <div class="body">
         <h3 class="group">Presentations</h3>
         <ol class="timeline">
@@ -335,15 +418,27 @@ footer .joke{color:var(--violet);font-weight:600}
           <li><div class="when">2026</div><div class="what"><h3>Na-22 source preparation</h3><p class="where">Research group presentation, McMaster University</p></div></li>
           <li><div class="when">2023</div><div class="what"><h3>Research poster: identifying material defects with positron annihilation spectrometry</h3><p class="where">Mitacs internship poster showcase, McMaster University</p></div></li>
         </ol>
-        <h3 class="group">Writing</h3>
+        <figure class="card gallery" id="numat">
+          <img src="images/numat2026.jpg" width="1100" height="1100" loading="lazy" alt="Collage from NuMat 2026: Alejandra next to her poster, her conference badge in Halifax, and her certificate of presentation from Elsevier.">
+          <figcaption>NuMat 2026, Halifax: my poster, my badge, and the certificate of presentation.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="society">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">✎</span><br>Science and society</h2>
+      <div class="body">
+        <p>I care about what science and engineering do for the people around them, especially in Colombia. At Universidad Nacional I wrote a course essay asking how scientists and engineers can support the country's peace agreement, and I keep writing about science and its social questions.</p>
         <ol class="timeline">
-          <li><div class="when">Article</div><div class="what"><h3>Are scientists and engineers contributing to the peace agreement in Colombia?</h3><p class="where">Course essay, Universidad Nacional de Colombia</p></div></li>
+          <li><div class="when">Essay</div><div class="what"><h3>Are scientists and engineers contributing to the peace agreement in Colombia?</h3><p class="where">Course essay, Universidad Nacional de Colombia</p></div></li>
         </ol>
       </div>
     </div>
   </section>
 
-  <section id="awards">
+  <section id="awards" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">★</span><br>Awards and certifications</h2>
       <div class="body">
@@ -352,13 +447,14 @@ footer .joke{color:var(--violet);font-weight:600}
           <dt>2025</dt><dd>Emerging Leaders in the Americas Program (ELAP) Scholarship, Government of Canada</dd>
           <dt>2023</dt><dd>Mitacs Globalink Research Internship</dd>
           <dt>2026</dt><dd>AWS Certified Cloud Practitioner; AWS re/Start; Advanced Excel and Power BI</dd>
+          <dt>Outreach</dt><dd>Letras a la Ciencia: science communication and reading mediation (12 h)</dd>
           <dt>Languages</dt><dd>Spanish (native), English (C1, IELTS Academic 7.0), French (intermediate)</dd>
         </dl>
       </div>
     </div>
   </section>
 
-  <section id="play" class="alt">
+  <section id="play">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">e⁺</span><br>Play: find the damage</h2>
       <div class="body">
@@ -382,7 +478,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">@</span><br>Contact</h2>
       <div class="body">
