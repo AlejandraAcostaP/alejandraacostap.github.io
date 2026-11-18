@@ -119,6 +119,10 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .project .stack{font-size:.88rem;color:var(--muted);margin:0}
 @media (max-width:760px){.project-grid{grid-template-columns:1fr}}
 .doc-link{margin-top:6px!important;font-weight:600}
+.page-hero{padding:48px 0 30px}
+.page-hero .wrap{grid-template-columns:1fr}
+.page-hero .lede{max-width:56ch}
+.hello a.back{text-decoration:none;color:inherit}
 .to-students{margin:18px 0 0;font-weight:700}
 .lead-in{font-size:1.08rem;max-width:62ch}
 .student-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;margin:6px 0 18px}
@@ -255,6 +259,7 @@ footer .joke{color:var(--violet);font-weight:600}
         <li><a href="#projects">Projects</a></li>
         <li><a href="#talks">Talks</a></li>
         <li><a href="#play">Play</a></li>
+        <li><a href="students/">Students</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a class="lang" href="es/" hreflang="es" lang="es">ES</a></li>
       </ul>
@@ -371,42 +376,12 @@ footer .joke{color:var(--violet);font-weight:600}
           <li><b>ELAP 2025</b><span>My own project</span></li>
           <li><b>MASc 2026</b><span>McMaster</span></li>
         </ol>
-        <p class="to-students"><a href="#students">Are you a student who wants to try a similar path? Start here →</a></p>
+        <p class="to-students"><a href="students/">Are you a student who wants to try a similar path? Start here →</a></p>
       </div>
     </div>
   </section>
 
-  <section id="students">
-    <div class="wrap sec">
-      <h2><span class="sym" aria-hidden="true">✦</span><br>For students</h2>
-      <div class="body">
-        <p class="lead-in">If you study at a public school or university in Colombia, or anywhere in Latin America, and research abroad feels out of reach: this section is for you. I was there too.</p>
-        <div class="student-grid">
-          <article class="card student">
-            <h3>What I wish I had known</h3>
-            <ul>
-              <li><b>You don't need perfect English to start.</b> I learned English at university and kept improving it by using it.</li>
-              <li><b>It's not too late to change paths.</b> I started in sociology before physics, and those years still count.</li>
-              <li><b>One opportunity opens the next.</b> A 12-week internship led to a scholarship, then to my thesis, a conference and a master's.</li>
-              <li><b>Caring about your community counts.</b> Leading my school's student council taught me as much as any class.</li>
-            </ul>
-          </article>
-          <article class="card student">
-            <h3>Programs that took me to Canada</h3>
-            <p><b>Mitacs Globalink Research Internship.</b> A paid 12-week research internship with a professor at a Canadian university, for undergraduates from partner countries, including Colombia (only some universities are eligible). Students apply in the second half of the year (for 2027 the deadline was September 16, 2026), and internships run between May and October. You need a reference letter from a professor. <a href="https://www.mitacs.ca/our-programs/globalink-research-internship/">Official page</a></p>
-            <p><b>Emerging Leaders in the Americas Program (ELAP).</b> A Government of Canada scholarship for students from Latin America and the Caribbean, including Colombia, for a short study or research stay in Canada, at undergraduate, master's or PhD level. The Canadian university applies on your behalf, so you need a host there: an exchange agreement with your university or, for research, a professor who invites you. At McMaster the deadline is in March. <a href="https://educanada.ca/scholarships-bourses/can/institutions/elap-pfla.aspx">Official page</a></p>
-            <p class="small-note">Dates and rules change every year: always check the official pages and ask your university's international relations office.</p>
-          </article>
-        </div>
-        <div class="card invite">
-          <p><b>Write to me.</b> If you are a student and want to try this path, send me an email with the subject “Estudiante”. I'll answer when I can, in Spanish or English.</p>
-          <ul class="links"><li><a class="primary" href="mailto:maleacostap@gmail.com?subject=Estudiante">Email me</a></li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience" class="alt">
+  <section id="experience">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">Δt</span><br>Experience</h2>
       <div class="body">
@@ -427,7 +402,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">{ }</span><br>Projects</h2>
       <div class="body">
@@ -442,7 +417,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="education" class="alt">
+  <section id="education">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">∑</span><br>Education</h2>
       <div class="body">
@@ -454,7 +429,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="talks">
+  <section id="talks" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">γ</span><br>Talks</h2>
       <div class="body">
@@ -473,7 +448,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="society" class="alt">
+  <section id="society">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">✎</span><br>Science and society</h2>
       <div class="body">
@@ -485,7 +460,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="awards">
+  <section id="awards" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">★</span><br>Awards and certifications</h2>
       <div class="body">
@@ -501,7 +476,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="play" class="alt">
+  <section id="play">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">e⁺</span><br>Play: find the damage</h2>
       <div class="body">
@@ -527,7 +502,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">@</span><br>Contact</h2>
       <div class="body">
@@ -608,6 +583,7 @@ fetch((() => {
 <script>
 (function(){
   var svg=document.getElementById('ann'), btn=document.getElementById('replay');
+  if(!svg) return;
   var still=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function play(){ if(still) return; svg.classList.remove('play'); void svg.getBoundingClientRect(); svg.classList.add('play'); }
   if(still){ btn.hidden=true; } else { play(); }
