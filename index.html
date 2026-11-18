@@ -150,6 +150,19 @@ footer p{margin:0 0 6px}
 .led{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:blink 1.6s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
 .digits{font:700 2rem/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:var(--violet);margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.game{padding:16px 16px 14px}
+.game-top{display:flex;gap:22px;flex-wrap:wrap;font-size:.92rem;color:var(--muted);margin:0 4px 10px}
+.game-top b{color:var(--violet)}
+#g-canvas{display:block;width:100%;height:260px;border-radius:12px;background:var(--tint);touch-action:manipulation}
+.game-ctrl{display:grid;grid-template-columns:1fr auto;gap:8px 16px;align-items:center;margin:14px 4px 0}
+.game-ctrl label{grid-column:1/-1;font-size:.95rem}
+.game-ctrl label span{color:var(--muted)}
+.game-ctrl input[type=range]{width:100%;accent-color:var(--violet)}
+.fire-btn{font:700 .95rem var(--sans);color:var(--paper);background:var(--orange);border:0;border-radius:12px;padding:10px 18px;cursor:pointer}
+.fire-btn:hover{filter:brightness(1.07)}
+.fire-btn:disabled{opacity:.5;cursor:default}
+.game-msg{margin:10px 4px 0;font-weight:600;color:var(--ink);min-height:1.6em}
+.game-note{font-size:.88rem;color:var(--muted);margin-top:14px}
 .det-note{font-size:.85rem;color:var(--muted);line-height:1.4}
 .det-hint{font-size:.85rem;font-weight:600;color:var(--orange);margin-top:6px;min-height:1.4em}
 .detector{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
@@ -189,6 +202,7 @@ footer .joke{color:var(--violet);font-weight:600}
         <li><a href="#research">Research</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#talks">Talks</a></li>
+        <li><a href="#play">Play</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -344,7 +358,31 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="contact" class="alt">
+  <section id="play" class="alt">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">e⁺</span><br>Play: find the damage</h2>
+      <div class="body">
+        <p>This is how I find radiation damage in the lab. Turn the beam energy up to send positrons deeper into the steel, then fire. Positrons that stop inside the damaged layer get trapped in its vacancies and light up. Land as many as you can in the layer. From level 4 the damaged layer is hidden, just like in a real sample.</p>
+        <div class="card game">
+          <div class="game-top">
+            <span>Level <b id="g-level">1</b>/5</span>
+            <span>Shots left <b id="g-shots">3</b></span>
+            <span>Score <b id="g-score">0</b>/500</span>
+          </div>
+          <canvas id="g-canvas" role="img" aria-label="Cross-section of a steel sample with a damaged layer. Positrons enter from the left and stop at a depth set by the beam energy."></canvas>
+          <div class="game-ctrl">
+            <label for="g-energy">Beam energy <b id="g-e">5.0</b> keV <span>· mean depth <b id="g-depth">0</b> nm</span></label>
+            <input type="range" id="g-energy" min="0.5" max="25" step="0.1" value="5">
+            <button type="button" id="g-fire" class="fire-btn">Fire positrons</button>
+          </div>
+          <p id="g-msg" class="game-msg" aria-live="polite">Move the slider until the dashed curve sits on the orange layer, then fire.</p>
+        </div>
+        <p class="game-note">Real physics: positrons from a beam of energy <i>E</i> stop at a mean depth <i>z̄</i> = (40/ρ)·<i>E</i><sup>1.6</sup> nm (Makhov profile, ρ = 7.9 g/cm³ for steel), with a broad spread around it. That is why no shot can trap 100 %: your score compares each shot with the best energy possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">@</span><br>Contact</h2>
       <div class="body">
@@ -426,5 +464,137 @@ fetch('https://alejandraacostap.goatcounter.com/counter/TOTAL.json')
 })();
 </script>
 <script data-goatcounter="https://alejandraacostap.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  const cv = document.getElementById('g-canvas'); if (!cv) return;
+  const ctx = cv.getContext('2d');
+  const $ = id => document.getElementById(id);
+  const slider = $('g-energy'), fireBtn = $('g-fire'), msg = $('g-msg');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MAXZ = 1000, WIDTHS = [240, 170, 120, 90, 65];
+  const zbar = E => 5.06 * Math.pow(E, 1.6);            // nm, steel
+  const z0 = E => zbar(E) / 0.8862;                       // Makhov m = 2
+  const frac = (E, a, b) => { const c = z0(E); return Math.exp(-((a / c) ** 2)) - Math.exp(-((b / c) ** 2)); };
+  const pdf = (E, z) => { const c = z0(E); return 2 * z / (c * c) * Math.exp(-((z / c) ** 2)); };
+  let level, shots, total, best, band, opt, dots, flying, busy, done, W = 600, H = 260;
+
+  function col(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#5B47D6'; }
+  function newLevel() {
+    const w = WIDTHS[level - 1];
+    const a = 40 + Math.random() * (650 - w);
+    band = { a, b: a + w };
+    opt = 0; for (let E = 0.5; E <= 25; E += 0.05) opt = Math.max(opt, frac(E, band.a, band.b));
+    shots = 3; best = 0; dots = []; flying = [];
+    hud();
+  }
+  function reset() { level = 1; total = 0; done = false; fireBtn.textContent = 'Fire positrons'; newLevel();
+    msg.textContent = 'Move the slider until the dashed curve sits on the orange layer, then fire.'; draw(); }
+  function hud() { $('g-level').textContent = level; $('g-shots').textContent = shots; $('g-score').textContent = Math.round(total);
+    const E = +slider.value; $('g-e').textContent = E.toFixed(1); $('g-depth').textContent = Math.round(zbar(E)); }
+  const L = () => 64, R = () => W - 14, T = 22, B = () => H - 34;
+  const X = z => L() + z / MAXZ * (R() - L());
+
+  function size() {
+    const dpr = window.devicePixelRatio || 1; W = cv.clientWidth; H = 260;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); draw();
+  }
+  function draw() {
+    const violet = col('--violet'), blue = col('--blue'), orange = col('--orange'), muted = col('--muted'), rule = col('--rule'), surface = col('--surface');
+    ctx.clearRect(0, 0, W, H);
+    // steel
+    ctx.fillStyle = surface; ctx.fillRect(L(), T, R() - L(), B() - T);
+    ctx.strokeStyle = rule; ctx.lineWidth = 1; ctx.strokeRect(L() + .5, T + .5, R() - L() - 1, B() - T - 1);
+    ctx.fillStyle = muted; ctx.font = '600 11px ' + getComputedStyle(document.body).fontFamily;
+    ctx.fillText('304 stainless steel', L() + 8, T + 15);
+    // damaged layer
+    const hidden = level >= 4 && !done;
+    if (!hidden) {
+      ctx.fillStyle = orange; ctx.globalAlpha = .16; ctx.fillRect(X(band.a), T, X(band.b) - X(band.a), B() - T);
+      ctx.globalAlpha = .9; ctx.setLineDash([4, 4]); ctx.strokeStyle = orange;
+      ctx.strokeRect(X(band.a) + .5, T + .5, X(band.b) - X(band.a) - 1, B() - T - 1); ctx.setLineDash([]); ctx.globalAlpha = 1;
+      ctx.fillStyle = orange; ctx.fillText('damaged layer', Math.min(X(band.a) + 6, R() - 90), B() - 8);
+    } else {
+      ctx.fillStyle = muted; ctx.fillText('damaged layer: hidden somewhere', L() + 8, B() - 8);
+    }
+    // depth axis
+    ctx.fillStyle = muted; ctx.textAlign = 'center';
+    for (let z = 0; z <= MAXZ; z += 250) { ctx.textAlign = z === MAXZ ? 'right' : 'center'; ctx.fillText(z + (z === MAXZ ? ' nm' : ''), z === MAXZ ? X(z) + 4 : X(z), H - 12);
+      ctx.fillRect(X(z), B(), 1, 5); }
+    ctx.textAlign = 'left';
+    // beam source
+    ctx.fillStyle = violet; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(6, (T + B()) / 2 - 18, 40, 36, 8) : ctx.rect(6, (T + B()) / 2 - 18, 40, 36); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = '700 13px ' + getComputedStyle(document.body).fontFamily; ctx.textAlign = 'center';
+    ctx.fillText('e⁺', 26, (T + B()) / 2 + 5); ctx.textAlign = 'left';
+    // implantation profile preview
+    const E = +slider.value; let pmax = 0; const pts = [];
+    for (let z = 0; z <= MAXZ; z += 4) { const v = pdf(E, z); pts.push([z, v]); pmax = Math.max(pmax, v); }
+    const zp = z0(E) / Math.SQRT2, peak = pdf(E, zp) || pmax;
+    ctx.strokeStyle = violet; ctx.lineWidth = 2; ctx.setLineDash([6, 5]); ctx.beginPath();
+    pts.forEach(([z, v], i) => { const x = X(z), y = B() - 4 - v / peak * (B() - T - 30); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+    ctx.stroke(); ctx.setLineDash([]);
+    // landed positrons
+    for (const d of dots) { ctx.fillStyle = d.hit ? orange : blue; ctx.globalAlpha = d.hit ? 1 : .55;
+      ctx.beginPath(); ctx.arc(X(d.z), d.y, d.hit ? 3.2 : 2.4, 0, 7); ctx.fill(); }
+    ctx.globalAlpha = 1;
+    // flying positrons + gamma bursts
+    const now = performance.now();
+    for (const f of flying) {
+      const k = Math.min(1, (now - f.t0) / f.dur); if (k <= 0) continue;
+      const x = 46 + (X(f.z) - 46) * k, y = (T + B()) / 2 + (f.y - (T + B()) / 2) * k;
+      if (k < 1) { ctx.fillStyle = violet; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 7); ctx.fill(); }
+      else if (f.hit && now - f.t0 - f.dur < 350) { const g = (now - f.t0 - f.dur) / 350;
+        ctx.strokeStyle = orange; ctx.globalAlpha = 1 - g; ctx.lineWidth = 1.6; ctx.beginPath();
+        ctx.moveTo(x - 14 * g, y - 10 * g); ctx.lineTo(x + 14 * g, y + 10 * g); ctx.stroke(); ctx.globalAlpha = 1; }
+    }
+  }
+  function sampleZ(E) { return z0(E) * Math.sqrt(-Math.log(1 - Math.random())); }
+
+  function fire() {
+    if (done) { reset(); return; }
+    if (busy || shots <= 0) return;
+    busy = true; fireBtn.disabled = true;
+    const E = +slider.value, t = performance.now(), N = 60;
+    flying = [];
+    for (let i = 0; i < N; i++) {
+      const z = Math.min(sampleZ(E), MAXZ - 2), y = T + 10 + Math.random() * (B() - T - 20);
+      flying.push({ z, y, hit: z >= band.a && z <= band.b, t0: t + (still ? -1e4 : i * 18), dur: still ? 1 : 520 });
+    }
+    const end = t + (still ? 0 : N * 18 + 520 + 360);
+    (function loop() {
+      draw();
+      if (performance.now() < end) return requestAnimationFrame(loop);
+      flying.forEach(f => dots.push({ z: f.z, y: f.y, hit: f.hit })); flying = [];
+      finishShot(E);
+    })();
+  }
+  function finishShot(E) {
+    const f = frac(E, band.a, band.b), pct = Math.min(100, Math.round(f / opt * 100));
+    shots--; const prevBest = best; best = Math.max(best, pct);
+    total += best - prevBest;
+    const trapped = Math.round(f * 100);
+    let text = trapped + ' % of positrons trapped in the damage (' + pct + ' % of the best possible). ';
+    const deep = zbar(E) > (band.a + band.b) / 2;
+    if (pct >= 85) text = '🎯 Bullseye! ' + text;
+    else text += deep ? 'Too deep: lower the energy.' : 'Too shallow: raise the energy.';
+    if (pct >= 85 || shots === 0) {
+      if (level === 5) { done = true; draw(); hud(); endGame(text); busy = false; fireBtn.disabled = false; return; }
+      text += pct >= 85 ? ' Next level: a thinner layer.' : ' Out of shots. Next level.';
+      msg.textContent = text; hud(); draw();
+      setTimeout(() => { level++; newLevel(); draw(); msg.textContent = level >= 4 ? 'Level ' + level + ': the damaged layer is hidden. Use the orange hits to find it.' : 'Level ' + level + ': thinner layer, same beam.'; busy = false; fireBtn.disabled = false; }, 1800);
+    } else { msg.textContent = text; hud(); draw(); busy = false; fireBtn.disabled = false; }
+  }
+  function endGame(last) {
+    const s = Math.round(total);
+    const rank = s >= 450 ? 'Positron master. Want a spot in our lab?' : s >= 330 ? 'Solid beam work: ready for the lab.' : s >= 200 ? 'Not bad! The real samples are harder.' : 'Keep tuning that beam.';
+    msg.textContent = last + ' Final score: ' + s + '/500. ' + rank;
+    fireBtn.textContent = 'Play again';
+  }
+  slider.addEventListener('input', () => { hud(); if (!busy) draw(); });
+  fireBtn.addEventListener('click', fire);
+  window.addEventListener('resize', size);
+  if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
+  reset(); size();
+})();
+</script>
 </body>
 </html>
