@@ -19,6 +19,7 @@ T=[
 ('<a href="#talks">Talks</a>','<a href="#talks">Charlas</a>'),
 ('<a href="#play">Play</a>','<a href="#play">Juego</a>'),
 ('<a href="#contact">Contact</a>','<a href="#contact">Contacto</a>'),
+('<a href="students/">Students</a>','<a href="estudiantes/">Estudiantes</a>'),
 # hero
 ("Hi, I'm a positron and nuclear materials physicist 👋","Hola, soy física de positrones y materiales nucleares 👋"),
 ('alt="Portrait of Alejandra Acosta"','alt="Retrato de Alejandra Acosta"'),
@@ -69,31 +70,7 @@ T=[
 ('<span>Sociology → Physics</span>','<span>Sociología → Física</span>'),
 ('<span>First positrons</span>','<span>Primeros positrones</span>'),
 ('<span>My own project</span>','<span>Mi propio proyecto</span>'),
-# students
 ('>Are you a student who wants to try a similar path? Start here →<','>¿Eres estudiante y quieres intentar un camino parecido? Empieza aquí →<'),
-('<br>For students</h2>','<br>Para estudiantes</h2>'),
-('If you study at a public school or university in Colombia, or anywhere in Latin America, and research abroad feels out of reach: this section is for you. I was there too.',
- 'Si estudias en un colegio o una universidad pública en Colombia, o en cualquier parte de América Latina, y la investigación en el exterior te parece inalcanzable: esta sección es para ti. Yo también estuve ahí.'),
-('<h3>What I wish I had known</h3>','<h3>Lo que me hubiera gustado saber</h3>'),
-("<b>You don't need perfect English to start.</b> I learned English at university and kept improving it by using it.",
- '<b>No necesitas un inglés perfecto para empezar.</b> Aprendí inglés en la universidad y lo fui mejorando al usarlo.'),
-("<b>It's not too late to change paths.</b> I started in sociology before physics, and those years still count.",
- '<b>Nunca es tarde para cambiar de camino.</b> Empecé en sociología antes de física, y esos años también cuentan.'),
-("<b>One opportunity opens the next.</b> A 12-week internship led to a scholarship, then to my thesis, a conference and a master's.",
- '<b>Una oportunidad abre la siguiente.</b> Una pasantía de 12 semanas me llevó a una beca, luego a mi tesis, a un congreso y a una maestría.'),
-("<b>Caring about your community counts.</b> Leading my school's student council taught me as much as any class.",
- '<b>Que te importe tu comunidad cuenta.</b> Presidir el consejo estudiantil de mi colegio me enseñó tanto como cualquier clase.'),
-('<h3>Programs that took me to Canada</h3>','<h3>Programas que me llevaron a Canadá</h3>'),
-('A paid 12-week research internship with a professor at a Canadian university, for undergraduates from partner countries, including Colombia (only some universities are eligible). Students apply in the second half of the year (for 2027 the deadline was September 16, 2026), and internships run between May and October. You need a reference letter from a professor.',
- 'Una pasantía de investigación pagada de 12 semanas con un profesor de una universidad canadiense, para estudiantes de pregrado de países aliados, entre ellos Colombia (solo algunas universidades son elegibles). La convocatoria para estudiantes es en el segundo semestre del año (para 2027 cerró el 16 de septiembre de 2026) y las pasantías son entre mayo y octubre. Necesitas una carta de recomendación de un profesor.'),
-('A Government of Canada scholarship for students from Latin America and the Caribbean, including Colombia, for a short study or research stay in Canada, at undergraduate, master\'s or PhD level. The Canadian university applies on your behalf, so you need a host there: an exchange agreement with your university or, for research, a professor who invites you. At McMaster the deadline is in March.',
- 'Una beca del Gobierno de Canadá para estudiantes de América Latina y el Caribe, entre ellos Colombia, para una estancia corta de estudio o investigación en Canadá, en pregrado, maestría o doctorado. La universidad canadiense presenta la solicitud por ti, así que necesitas un anfitrión allá: un convenio de intercambio con tu universidad o, para investigación, un profesor que te invite. En McMaster la fecha límite es en marzo.'),
-('<b>Emerging Leaders in the Americas Program (ELAP).</b>','<b>Programa Líderes Emergentes en las Américas (ELAP).</b>'),
-('>Official page<','>Página oficial<'),
-("Dates and rules change every year: always check the official pages and ask your university's international relations office.",
- 'Las fechas y reglas cambian cada año: revisa siempre las páginas oficiales y pregunta en la oficina de relaciones internacionales de tu universidad.'),
-("<b>Write to me.</b> If you are a student and want to try this path, send me an email with the subject “Estudiante”. I'll answer when I can, in Spanish or English.",
- '<b>Escríbeme.</b> Si eres estudiante y quieres intentar este camino, mándame un correo con el asunto “Estudiante”. Te respondo cuando pueda, en español o en inglés.'),
 # experience
 ('<br>Experience</h2>','<br>Experiencia</h2>'),
 ('>Research and teaching<','>Investigación y docencia<'),
@@ -215,8 +192,40 @@ T=[
 ("'Positrons you fired: '","'Positrones disparados: '"),
 ("'. Your detector is getting good statistics.'","'. Tu detector ya tiene buena estadística.'"),
 ]
-miss=[a for a,b in T if a not in s]
-if miss: print('MISSING:',*miss,sep='\n  '); sys.exit(1)
-for a,b in T: s=s.replace(a,b)
-open('es/index.html','w').write(s)
-print('ok')
+def tr(s, pairs, strict=True):
+    miss=[a for a,b in pairs if a not in s]
+    if strict and miss: print('MISSING:',*miss,sep='\n  '); sys.exit(1)
+    for a,b in pairs: s=s.replace(a,b)
+    return s
+
+TS=[
+('<br>For students</h2>','<br>Para estudiantes</h2>'),
+('If you study at a public school or university in Colombia, or anywhere in Latin America, and research abroad feels out of reach: this section is for you. I was there too.',
+ 'Si estudias en un colegio o una universidad pública en Colombia, o en cualquier parte de América Latina, y la investigación en el exterior te parece inalcanzable: esta sección es para ti. Yo también estuve ahí.'),
+('<h3>What I wish I had known</h3>','<h3>Lo que me hubiera gustado saber</h3>'),
+("<b>You don't need perfect English to start.</b> I learned English at university and kept improving it by using it.",
+ '<b>No necesitas un inglés perfecto para empezar.</b> Aprendí inglés en la universidad y lo fui mejorando al usarlo.'),
+("<b>It's not too late to change paths.</b> I started in sociology before physics, and those years still count.",
+ '<b>Nunca es tarde para cambiar de camino.</b> Empecé en sociología antes de física, y esos años también cuentan.'),
+("<b>One opportunity opens the next.</b> A 12-week internship led to a scholarship, then to my thesis, a conference and a master's.",
+ '<b>Una oportunidad abre la siguiente.</b> Una pasantía de 12 semanas me llevó a una beca, luego a mi tesis, a un congreso y a una maestría.'),
+("<b>Caring about your community counts.</b> Leading my school's student council taught me as much as any class.",
+ '<b>Que te importe tu comunidad cuenta.</b> Presidir el consejo estudiantil de mi colegio me enseñó tanto como cualquier clase.'),
+('<h3>Programs that took me to Canada</h3>','<h3>Programas que me llevaron a Canadá</h3>'),
+('A paid 12-week research internship with a professor at a Canadian university, for undergraduates from partner countries, including Colombia (only some universities are eligible). Students apply in the second half of the year (for 2027 the deadline was September 16, 2026), and internships run between May and October. You need a reference letter from a professor.',
+ 'Una pasantía de investigación pagada de 12 semanas con un profesor de una universidad canadiense, para estudiantes de pregrado de países aliados, entre ellos Colombia (solo algunas universidades son elegibles). La convocatoria para estudiantes es en el segundo semestre del año (para 2027 cerró el 16 de septiembre de 2026) y las pasantías son entre mayo y octubre. Necesitas una carta de recomendación de un profesor.'),
+('A Government of Canada scholarship for students from Latin America and the Caribbean, including Colombia, for a short study or research stay in Canada, at undergraduate, master\'s or PhD level. The Canadian university applies on your behalf, so you need a host there: an exchange agreement with your university or, for research, a professor who invites you. At McMaster the deadline is in March.',
+ 'Una beca del Gobierno de Canadá para estudiantes de América Latina y el Caribe, entre ellos Colombia, para una estancia corta de estudio o investigación en Canadá, en pregrado, maestría o doctorado. La universidad canadiense presenta la solicitud por ti, así que necesitas un anfitrión allá: un convenio de intercambio con tu universidad o, para investigación, un profesor que te invite. En McMaster la fecha límite es en marzo.'),
+('<b>Emerging Leaders in the Americas Program (ELAP).</b>','<b>Programa Líderes Emergentes en las Américas (ELAP).</b>'),
+('>Official page<','>Página oficial<'),
+("Dates and rules change every year: always check the official pages and ask your university's international relations office.",
+ 'Las fechas y reglas cambian cada año: revisa siempre las páginas oficiales y pregunta en la oficina de relaciones internacionales de tu universidad.'),
+("<b>Write to me.</b> If you are a student and want to try this path, send me an email with the subject “Estudiante”. I'll answer when I can, in Spanish or English.",
+ '<b>Escríbeme.</b> Si eres estudiante y quieres intentar este camino, mándame un correo con el asunto “Estudiante”. Te respondo cuando pueda, en español o en inglés.'),
+]
+
+if __name__=='__main__':
+    out=tr(s, T)
+    out=out.replace('<p class="to-students"><a href="students/">','<p class="to-students"><a href="estudiantes/">')
+    open('es/index.html','w').write(out)
+    print('ok')
