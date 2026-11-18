@@ -65,7 +65,7 @@ T=[
  'Empecé estudiando sociología en la Universidad Nacional de Colombia, luego me cambié a física y aprendí inglés en el camino. En 2023 una pasantía Mitacs Globalink me trajo por primera vez a McMaster para aprender espectroscopía de aniquilación de positrones.'),
 ('In 2025 I came back as an ELAP scholar with my own proposal: use positrons to study radiation damage in reactor steels. That project opened a new research line in our group, became my undergraduate thesis, and took me to NuMat 2026 in Halifax. Today I continue that work as a MASc student.',
  'En 2025 volví como becaria ELAP con mi propia propuesta: usar positrones para estudiar el daño por radiación en aceros de reactores. Ese proyecto abrió una nueva línea de investigación en nuestro grupo, se convirtió en mi tesis de pregrado y me llevó a NuMat 2026 en Halifax. Hoy continúo ese trabajo como estudiante de maestría.'),
-('<span>Public school</span>','<span>Colegio público</span>'),
+('<span>Institución Educativa San Mateo (public school)</span>','<span>Institución Educativa San Mateo (colegio público)</span>'),
 ('<span>Sociology → Physics</span>','<span>Sociología → Física</span>'),
 ('<span>First positrons</span>','<span>Primeros positrones</span>'),
 ('<span>My own project</span>','<span>Mi propio proyecto</span>'),
