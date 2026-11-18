@@ -140,7 +140,32 @@ dl.facts-list dd{margin:0}
 
 footer{padding:34px 0 46px;font-size:.92rem;color:var(--muted);border-top:1px solid var(--rule)}
 footer p{margin:0 0 6px}
-footer .visits{color:var(--violet);font-weight:600}
+.detector{display:inline-flex;align-items:center;gap:18px;margin-top:16px;padding:14px 20px 14px 14px;max-width:100%}
+.det-icon{width:120px;height:60px;flex:none}
+.det-em circle{fill:var(--blue)} .det-ep circle{fill:var(--violet)}
+.det-icon text{font:700 9px var(--sans);fill:#fff;text-anchor:middle;dominant-baseline:central}
+.det-g{stroke:var(--orange);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:50;stroke-dashoffset:0}
+.det-flash{fill:var(--orange);opacity:0}
+.det-head{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.led{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.digits{font:700 2rem/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:var(--violet);margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.det-note{font-size:.85rem;color:var(--muted);line-height:1.4}
+.det-hint{font-size:.85rem;font-weight:600;color:var(--orange);margin-top:6px;min-height:1.4em}
+.detector{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.detector:hover{transform:translateY(-2px);box-shadow:0 24px 48px -24px rgba(60,45,160,.6)}
+.detector:hover .led{animation-duration:.5s}
+.detector:active{transform:scale(.98)}
+.fire .det-em{animation:dIn .9s cubic-bezier(.5,0,.9,.6) both}
+.fire .det-ep{animation:dIn2 .9s cubic-bezier(.5,0,.9,.6) both}
+@keyframes dIn{88%{transform:translateX(44px);opacity:1}100%{transform:translateX(46px);opacity:0}}
+@keyframes dIn2{88%{transform:translateX(-44px);opacity:1}100%{transform:translateX(-46px);opacity:0}}
+.fire .det-flash{animation:dFlash .6s ease-out .8s both;transform-origin:60px 30px}
+@keyframes dFlash{0%{opacity:.95;transform:scale(.3)}100%{opacity:0;transform:scale(2.6)}}
+.fire .det-g{animation:dShoot .6s ease-out .85s both}
+@keyframes dShoot{from{stroke-dashoffset:50}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion: reduce){.led,.fire *{animation:none!important}}
+@media (max-width:560px){.detector{flex-direction:column;align-items:flex-start}}
 footer .joke{color:var(--violet);font-weight:600}
 
 @media (max-width:880px){
@@ -336,14 +361,60 @@ footer .joke{color:var(--violet);font-weight:600}
   <div class="wrap">
     <p>I thank Prof. Peter Mascher, James Gaudet, the Positron Annihilation Group at McMaster University, and my collaborators for their support.</p>
     <p>© 2026 Alejandra Acosta</p>
-    <p class="visits" id="visits" hidden><b id="visit-count"></b> annihilation events recorded (visitors, not positrons: no gamma rays were emitted).</p>
+    <div class="detector card" id="visits" role="button" tabindex="0" aria-label="Fire a positron at the visitor detector" hidden>
+      <svg class="det-icon" viewBox="0 0 120 60" aria-hidden="true">
+        <line class="det-g g1" x1="60" y1="30" x2="20" y2="6"/>
+        <line class="det-g g2" x1="60" y1="30" x2="100" y2="54"/>
+        <circle class="det-flash" cx="60" cy="30" r="9"/>
+        <g class="det-em"><circle cx="14" cy="30" r="9"/><text x="14" y="30">e⁻</text></g>
+        <g class="det-ep"><circle cx="106" cy="30" r="9"/><text x="106" y="30">e⁺</text></g>
+      </svg>
+      <div class="det-body">
+        <div class="det-head"><span class="led" aria-hidden="true"></span>Visitor detector · counting</div>
+        <div class="digits" id="visit-count" aria-live="polite">000000</div>
+        <div class="det-note">annihilation events recorded (visitors, not positrons: no gamma rays were emitted)</div>
+        <div class="det-hint" id="det-hint">Click the detector to fire a positron ⚡</div>
+      </div>
+    </div>
   </div>
 </footer>
 <script>
 fetch('https://alejandraacostap.goatcounter.com/counter/TOTAL.json')
   .then(r => r.ok ? r.json() : Promise.reject())
-  .then(d => { document.getElementById('visit-count').textContent = d.count; document.getElementById('visits').hidden = false; })
+  .then(d => {
+    const n = parseInt(String(d.count).replace(/\D/g, ''), 10) || 0;
+    const box = document.getElementById('visits'), out = document.getElementById('visit-count');
+    const pad = v => String(v).padStart(6, '0');
+    box.hidden = false;
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (still) { out.textContent = pad(n); return; }
+    box.classList.add('fire');
+    const t0 = performance.now(), dur = 1400;
+    (function step(t) {
+      const k = Math.min(1, (t - t0) / dur);
+      out.textContent = pad(Math.round(n * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) requestAnimationFrame(step);
+    })(t0);
+  })
   .catch(() => {});
+(function () {
+  const box = document.getElementById('visits'), hint = document.getElementById('det-hint');
+  const lines = [
+    'Positron fired. It annihilated. Two 511 keV photons, zero visitors added.',
+    'Another one! Your clicks are not counted, only real visits are.',
+    'You are now officially doing positron spectroscopy.',
+    'Careful, at this rate you will need radiation training.',
+    'That one got trapped in a vacancy and lived a bit longer.'
+  ];
+  let shots = 0;
+  function fire() {
+    box.classList.remove('fire'); void box.offsetWidth; box.classList.add('fire');
+    shots++;
+    hint.textContent = (shots <= lines.length ? lines[shots - 1] : 'Positrons you fired: ' + shots + '. Your detector is getting good statistics.');
+  }
+  box.addEventListener('click', fire);
+  box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); } });
+})();
 </script>
 <script>
 (function(){
