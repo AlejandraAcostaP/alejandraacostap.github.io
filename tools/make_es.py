@@ -137,8 +137,13 @@ T=[
 ('<br>Science and society</h2>','<br>Ciencia y sociedad</h2>'),
 ("I care about what science and engineering do for the people around them, especially in Colombia. At Universidad Nacional I wrote a course essay asking how scientists and engineers can support the country's peace agreement, and I keep writing about science and its social questions.",
  'Me importa lo que la ciencia y la ingeniería hacen por la gente, especialmente en Colombia. En la Universidad Nacional escribí un ensayo de curso sobre cómo los científicos e ingenieros pueden aportar al acuerdo de paz del país, y sigo escribiendo sobre la ciencia y sus preguntas sociales.'),
-('>Essay<','>Ensayo<'),
-('Are scientists and engineers contributing to the peace agreement in Colombia?','¿Están contribuyendo los científicos e ingenieros al acuerdo de paz en Colombia?'),
+("I argue that the science and engineering faculties at Universidad Nacional should play an active part in the post-agreement: opening spaces for debate between science, technology and society, and building technologies adapted to local needs, so that knowledge improves people\'s material living conditions. Includes an interview I conducted with Prof. C. A. Hernández.",
+ "Planteo que las facultades de ciencias e ingeniería de la Universidad Nacional deben tener un papel activo en el posacuerdo: abrir espacios de debate entre ciencia, tecnología y sociedad, y construir tecnologías adaptadas a las necesidades locales, para que el conocimiento mejore las condiciones de vida materiales de la gente. Incluye una entrevista que le hice al Prof. C. A. Hernández."),
+(' · original title: <i>¿Están los científicos e ingenieros contribuyendo al posacuerdo?</i>',''),
+('<h3>Are scientists and engineers contributing to the peace agreement in Colombia?</h3>','<h3>¿Están los científicos e ingenieros contribuyendo al posacuerdo?</h3>'),
+('>Read the essay (PDF, in Spanish)<','>Leer el ensayo (PDF)<'),
+('href="docs/','href="../docs/'),
+
 ('Course essay, Universidad Nacional de Colombia','Ensayo de curso, Universidad Nacional de Colombia'),
 # awards
 ('<br>Awards and certifications</h2>','<br>Becas y certificaciones</h2>'),
