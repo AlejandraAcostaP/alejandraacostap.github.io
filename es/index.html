@@ -520,7 +520,13 @@ footer .joke{color:var(--violet);font-weight:600}
   </div>
 </footer>
 <script>
-fetch('https://alejandraacostap.goatcounter.com/counter/TOTAL.json', { cache: 'no-store' })
+fetch((() => {
+  // GoatCounter caches each counter URL; rotate between equivalent start dates (all before the site existed)
+  // every 10 minutes so the number never gets stuck on an old cached value.
+  const k = Math.floor(Date.now() / 600000) % 10;
+  const start = new Date(Date.UTC(2026, 10, 1 - k)).toISOString().slice(0, 10);
+  return 'https://alejandraacostap.goatcounter.com/counter/TOTAL.json?start=' + start;
+})(), { cache: 'no-store' })
   .then(r => r.ok ? r.json() : Promise.reject())
   .then(d => {
     const n = parseInt(String(d.count).replace(/\D/g, ''), 10) || 0;
