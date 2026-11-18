@@ -120,6 +120,18 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .project .stack{font-size:.88rem;color:var(--muted);margin:0}
 @media (max-width:760px){.project-grid{grid-template-columns:1fr}}
 .doc-link{margin-top:6px!important;font-weight:600}
+.to-students{margin:18px 0 0;font-weight:700}
+.lead-in{font-size:1.08rem;max-width:62ch}
+.student-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;margin:6px 0 18px}
+.student{padding:18px 22px}
+.student h3{font-size:1.08rem;margin:0 0 10px}
+.student ul{margin:0;padding-left:18px}
+.student li{margin:0 0 10px}
+.student p{margin:0 0 12px;font-size:.98rem}
+.small-note{font-size:.88rem!important;color:var(--muted)}
+.invite{padding:18px 22px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-left:5px solid var(--orange)}
+.invite p{margin:0;max-width:56ch}
+@media (max-width:760px){.student-grid{grid-template-columns:1fr}}
 .gallery{margin:26px 0 0;padding:12px;max-width:560px}
 .gallery img{display:block;width:100%;height:auto;border-radius:12px}
 .gallery figcaption{font-size:.9rem;color:var(--muted);margin:8px 4px 2px}
@@ -360,11 +372,42 @@ footer .joke{color:var(--violet);font-weight:600}
           <li><b>ELAP 2025</b><span>Mi propio proyecto</span></li>
           <li><b>MASc 2026</b><span>McMaster</span></li>
         </ol>
+        <p class="to-students"><a href="#students">¿Eres estudiante y quieres intentar un camino parecido? Empieza aquí →</a></p>
       </div>
     </div>
   </section>
 
-  <section id="experience">
+  <section id="students">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">✦</span><br>Para estudiantes</h2>
+      <div class="body">
+        <p class="lead-in">Si estudias en un colegio o una universidad pública en Colombia, o en cualquier parte de América Latina, y la investigación en el exterior te parece inalcanzable: esta sección es para ti. Yo también estuve ahí.</p>
+        <div class="student-grid">
+          <article class="card student">
+            <h3>Lo que me hubiera gustado saber</h3>
+            <ul>
+              <li><b>No necesitas un inglés perfecto para empezar.</b> Aprendí inglés en la universidad y lo fui mejorando al usarlo.</li>
+              <li><b>Nunca es tarde para cambiar de camino.</b> Empecé en sociología antes de física, y esos años también cuentan.</li>
+              <li><b>Una oportunidad abre la siguiente.</b> Una pasantía de 12 semanas me llevó a una beca, luego a mi tesis, a un congreso y a una maestría.</li>
+              <li><b>Que te importe tu comunidad cuenta.</b> Presidir el consejo estudiantil de mi colegio me enseñó tanto como cualquier clase.</li>
+            </ul>
+          </article>
+          <article class="card student">
+            <h3>Programas que me llevaron a Canadá</h3>
+            <p><b>Pasantía de investigación Mitacs Globalink.</b> Una pasantía de investigación pagada de 12 semanas con un profesor de una universidad canadiense, para estudiantes de pregrado de países aliados, entre ellos Colombia (solo algunas universidades son elegibles). La convocatoria para estudiantes es en el segundo semestre del año (para 2027 cerró el 16 de septiembre de 2026) y las pasantías son entre mayo y octubre. Necesitas una carta de recomendación de un profesor. <a href="https://www.mitacs.ca/our-programs/globalink-research-internship/">Página oficial</a></p>
+            <p><b>Programa Líderes Emergentes en las Américas (ELAP).</b> Una beca del Gobierno de Canadá para estudiantes de América Latina y el Caribe, entre ellos Colombia, para una estancia corta de estudio o investigación en Canadá, en pregrado, maestría o doctorado. La universidad canadiense presenta la solicitud por ti, así que necesitas un anfitrión allá: un convenio de intercambio con tu universidad o, para investigación, un profesor que te invite. En McMaster la fecha límite es en marzo. <a href="https://educanada.ca/scholarships-bourses/can/institutions/elap-pfla.aspx">Página oficial</a></p>
+            <p class="small-note">Las fechas y reglas cambian cada año: revisa siempre las páginas oficiales y pregunta en la oficina de relaciones internacionales de tu universidad.</p>
+          </article>
+        </div>
+        <div class="card invite">
+          <p><b>Escríbeme.</b> Si eres estudiante y quieres intentar este camino, mándame un correo con el asunto “Estudiante”. Te respondo cuando pueda, en español o en inglés.</p>
+          <ul class="links"><li><a class="primary" href="mailto:acostapm@mcmaster.ca?subject=Estudiante">Escríbeme</a></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">Δt</span><br>Experiencia</h2>
       <div class="body">
@@ -385,7 +428,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="projects" class="alt">
+  <section id="projects">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">{ }</span><br>Proyectos</h2>
       <div class="body">
@@ -400,7 +443,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="education">
+  <section id="education" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">∑</span><br>Formación</h2>
       <div class="body">
@@ -412,7 +455,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="talks" class="alt">
+  <section id="talks">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">γ</span><br>Charlas</h2>
       <div class="body">
@@ -431,7 +474,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="society">
+  <section id="society" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">✎</span><br>Ciencia y sociedad</h2>
       <div class="body">
@@ -443,7 +486,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="awards" class="alt">
+  <section id="awards">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">★</span><br>Becas y certificaciones</h2>
       <div class="body">
@@ -459,7 +502,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="play">
+  <section id="play" class="alt">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">e⁺</span><br>Juega: encuentra el daño</h2>
       <div class="body">
@@ -485,7 +528,7 @@ footer .joke{color:var(--violet);font-weight:600}
     </div>
   </section>
 
-  <section id="contact" class="alt">
+  <section id="contact">
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">@</span><br>Contacto</h2>
       <div class="body">
