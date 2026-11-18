@@ -140,6 +140,7 @@ dl.facts-list dd{margin:0}
 
 footer{padding:34px 0 46px;font-size:.92rem;color:var(--muted);border-top:1px solid var(--rule)}
 footer p{margin:0 0 6px}
+footer .visits{color:var(--violet);font-weight:600}
 footer .joke{color:var(--violet);font-weight:600}
 
 @media (max-width:880px){
@@ -335,8 +336,15 @@ footer .joke{color:var(--violet);font-weight:600}
   <div class="wrap">
     <p>I thank Prof. Peter Mascher, James Gaudet, the Positron Annihilation Group at McMaster University, and my collaborators for their support.</p>
     <p>© 2026 Alejandra Acosta</p>
+    <p class="visits" id="visits" hidden>Visitors so far: <b id="visit-count"></b></p>
   </div>
 </footer>
+<script>
+fetch('https://alejandraacostap.goatcounter.com/counter/TOTAL.json')
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(d => { document.getElementById('visit-count').textContent = d.count; document.getElementById('visits').hidden = false; })
+  .catch(() => {});
+</script>
 <script>
 (function(){
   var svg=document.getElementById('ann'), btn=document.getElementById('replay');
