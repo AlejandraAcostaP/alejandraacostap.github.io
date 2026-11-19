@@ -190,7 +190,7 @@ T=[
 # contact/footer/detector
 ('<br>Contact</h2>','<br>Contacto</h2>'),
 ('I am always happy to talk about positrons, radiation damage and nuclear materials, or to start a collaboration.','Siempre me alegra hablar de positrones, daño por radiación y materiales nucleares, o empezar una colaboración.'),
-('I thank Prof. Peter Mascher, James Gaudet, the Positron Annihilation Group at McMaster University, and my collaborators for their support.','Agradezco al Prof. Peter Mascher, a James Gaudet, al Grupo de Aniquilación de Positrones de McMaster University y a mis colaboradores por su apoyo.'),
+('I thank my parents, my teacher at Institución Educativa San Mateo, Prof. Peter Mascher, the Positron Annihilation Group at McMaster University, and my collaborators for their support.','Agradezco a mis padres, a mi docente de la Institución Educativa San Mateo, al Prof. Peter Mascher, al Grupo de Aniquilación de Positrones de McMaster University y a mis colaboradores por su apoyo.'),
 ('aria-label="Fire a positron at the visitor detector"','aria-label="Dispara un positrón al detector de visitantes"'),
 ('Visitor detector · counting','Detector de visitantes · contando'),
 ('annihilation events recorded (visitors, not positrons: no gamma rays were emitted)','eventos de aniquilación registrados (visitantes, no positrones: no se emitieron rayos gamma)'),
