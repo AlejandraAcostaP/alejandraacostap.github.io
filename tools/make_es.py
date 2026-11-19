@@ -71,6 +71,17 @@ T=[
 ('<span>First positrons</span>','<span>Primeros positrones</span>'),
 ('<span>My own project</span>','<span>Mi propio proyecto</span>'),
 ('>Are you a student who wants to try a similar path? Start here →<','>¿Eres estudiante y quieres intentar un camino parecido? Empieza aquí →<'),
+('<li><a href="play/">Play</a></li>','<li><a href="juega/">Juego</a></li>'),
+('including the <a href="play/">positron beam game</a>','incluido el <a href="juega/">juego del haz de positrones</a>'),
+('<br>Play</h2>','<br>Juego</h2>'),
+('<h3>Can you find the radiation damage?</h3>','<h3>¿Puedes encontrar el daño por radiación?</h3>'),
+('Pull back my positron gun, aim and fire into a steel sample, with the real implantation physics I use in the lab. Five levels.','Jala mi cañón de positrones, apunta y dispara a una muestra de acero, con la física de implantación real que uso en el laboratorio. Cinco niveles.'),
+('<a class="primary" href="play/">Play the game →</a>','<a class="primary" href="juega/">Jugar →</a>'),
+('<h3>Writing about science and its social questions</h3>','<h3>Escritos sobre la ciencia y sus preguntas sociales</h3>'),
+('What science and engineering can do for people, especially in Colombia, starting with my essay on scientists, engineers and the peace agreement.','Lo que la ciencia y la ingeniería pueden hacer por la gente, especialmente en Colombia, empezando por mi ensayo sobre científicos, ingenieros y el acuerdo de paz.'),
+('<a class="primary" href="writing/">Read my writing →</a>','<a class="primary" href="escritos/">Leer mis escritos →</a>'),
+('NuMat 2026, Halifax: my poster, my badge, and the certificate of presentation. Click to enlarge.','NuMat 2026, Halifax: mi póster, mi escarapela y el certificado de presentación. Haz clic para ampliar.'),
+('href="images/numat2026.jpg"','href="../images/numat2026.jpg"'),
 # experience
 ('<br>Experience</h2>','<br>Experiencia</h2>'),
 ('>Research and teaching<','>Investigación y docencia<'),
@@ -115,8 +126,8 @@ T=[
 ('Interactive dashboard on a relational model with revenue and profitability KPIs; data cleaned with Power Query, tasks automated with VBA, sales optimized with Solver.','Tablero interactivo sobre un modelo relacional con KPI de ingresos y rentabilidad; datos limpiados con Power Query, tareas automatizadas con VBA y ventas optimizadas con Solver.'),
 ('This website · 2026','Este sitio web · 2026'),
 ('<h3>Hand-built portfolio with a positron game</h3>','<h3>Portafolio hecho a mano con un juego de positrones</h3>'),
-('Plain HTML, CSS and JavaScript on GitHub Pages, including the <a href="#play">positron beam game</a>, which uses the real Makhov implantation profile for steel.',
- 'HTML, CSS y JavaScript puros en GitHub Pages, incluido el <a href="#play">juego del haz de positrones</a>, que usa el perfil de implantación de Makhov real para el acero.'),
+('Plain HTML, CSS and JavaScript on GitHub Pages, ','HTML, CSS y JavaScript puros en GitHub Pages, '),
+(', which uses the real Makhov implantation profile for steel.',', que usa el perfil de implantación de Makhov real para el acero.'),
 ('>source on GitHub<','>código en GitHub<'),
 # education
 ('<br>Education</h2>','<br>Formación</h2>'),
@@ -225,7 +236,7 @@ TS=[
 ]
 
 if __name__=='__main__':
-    out=tr(s, T)
+    out=tr(s, T, strict=False)
     out=out.replace('<p class="to-students"><a href="students/">','<p class="to-students"><a href="estudiantes/">')
     open('es/index.html','w').write(out)
     print('ok')

@@ -1,0 +1,25 @@
+  <section id="play">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">e⁺</span><br>Play: find the damage</h2>
+      <div class="body">
+        <p>This is how I find radiation damage in the lab. Grab the positron gun: press on the sample, <b>pull back</b> (drag to the left) to charge it, move up or down to <b>aim</b>, and <b>release</b> to fire. The further you pull, the higher the beam energy and the deeper the positrons go. Positrons that stop inside the damaged region get trapped in its vacancies and light up. From level 4 the damage is hidden, just like in a real sample.</p>
+        <div class="card game">
+          <div class="game-top">
+            <span>Level <b id="g-level">1</b>/5</span>
+            <span>Shots left <b id="g-shots">3</b></span>
+            <span>Score <b id="g-score">0</b>/500</span>
+          </div>
+          <canvas id="g-canvas" role="img" aria-label="Cross-section of a steel sample with a damaged region. A positron gun on the left fires positrons that stop at a depth set by the beam energy."></canvas>
+          <div class="game-ctrl">
+            <label for="g-energy">Energy <b id="g-e">5.0</b> keV <span>· depth <b id="g-depth">0</b> nm</span></label>
+            <input type="range" id="g-energy" min="0.5" max="25" step="0.1" value="5">
+            <button type="button" id="g-fire" class="fire-btn">Fire</button>
+            <label for="g-aim">Aim</label>
+            <input type="range" id="g-aim" min="0" max="100" step="1" value="50">
+          </div>
+          <p id="g-msg" class="game-msg" aria-live="polite">Press on the sample, pull back to charge, aim at the orange region and release.</p>
+        </div>
+        <p class="game-note">Real physics: positrons from a beam of energy <i>E</i> stop at a mean depth <i>z̄</i> = (40/ρ)·<i>E</i><sup>1.6</sup> nm (Makhov profile, ρ = 7.9 g/cm³ for steel), with a broad spread around it. That is why no shot can trap 100 %: your score compares each shot with the best energy possible.</p>
+      </div>
+    </div>
+  </section>

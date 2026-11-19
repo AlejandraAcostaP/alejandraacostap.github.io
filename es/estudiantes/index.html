@@ -120,6 +120,11 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .project .stack{font-size:.88rem;color:var(--muted);margin:0}
 @media (max-width:760px){.project-grid{grid-template-columns:1fr}}
 .doc-link{margin-top:6px!important;font-weight:600}
+.teaser{padding:20px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.teaser h3{margin:0 0 4px;font-size:1.1rem}
+.teaser p{margin:0;max-width:52ch}
+.page-body .sec{grid-template-columns:1fr}
+.page-body .sec > h2{display:none}
 .page-hero{padding:48px 0 30px}
 .page-hero .wrap{grid-template-columns:1fr}
 .page-hero .lede{max-width:56ch}
@@ -136,7 +141,8 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .invite{padding:18px 22px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-left:5px solid var(--orange)}
 .invite p{margin:0;max-width:56ch}
 @media (max-width:760px){.student-grid{grid-template-columns:1fr}}
-.gallery{margin:26px 0 0;padding:12px;max-width:560px}
+.gallery{margin:26px 0 0;padding:10px;max-width:280px}
+.gallery .zoom{display:block;cursor:zoom-in}
 .gallery img{display:block;width:100%;height:auto;border-radius:12px}
 .gallery figcaption{font-size:.9rem;color:var(--muted);margin:8px 4px 2px}
 
@@ -259,8 +265,8 @@ footer .joke{color:var(--violet);font-weight:600}
         <li><a href="../#experience">Experiencia</a></li>
         <li><a href="../#projects">Proyectos</a></li>
         <li><a href="../#talks">Charlas</a></li>
-        <li><a href="../#play">Juego</a></li>
-        <li><a href="./">Estudiantes</a></li>
+        <li><a href="../juega/">Juego</a></li>
+        <li><a href="../estudiantes/">Estudiantes</a></li>
         <li><a href="../#contact">Contacto</a></li>
         <li><a class="lang" href="../../students/" hreflang="en" lang="en">EN</a></li>
       </ul>
@@ -281,10 +287,10 @@ footer .joke{color:var(--violet);font-weight:600}
   </div>
 </div>
 
-<main>
+<main class="page-body">
   <section id="students">
     <div class="wrap sec">
-      <h2><span class="sym" aria-hidden="true">✦</span><br>Guía</h2>
+      <h2><span class="sym" aria-hidden="true">✦</span><br>Para estudiantes</h2>
       <div class="body">
         <p class="lead-in">Si estudias en un colegio o una universidad pública en Colombia, o en cualquier parte de América Latina, y la investigación en el exterior te parece inalcanzable: esta sección es para ti. Yo también estuve ahí.</p>
         <div class="student-grid">

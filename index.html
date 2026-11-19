@@ -119,6 +119,11 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .project .stack{font-size:.88rem;color:var(--muted);margin:0}
 @media (max-width:760px){.project-grid{grid-template-columns:1fr}}
 .doc-link{margin-top:6px!important;font-weight:600}
+.teaser{padding:20px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.teaser h3{margin:0 0 4px;font-size:1.1rem}
+.teaser p{margin:0;max-width:52ch}
+.page-body .sec{grid-template-columns:1fr}
+.page-body .sec > h2{display:none}
 .page-hero{padding:48px 0 30px}
 .page-hero .wrap{grid-template-columns:1fr}
 .page-hero .lede{max-width:56ch}
@@ -135,7 +140,8 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .invite{padding:18px 22px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-left:5px solid var(--orange)}
 .invite p{margin:0;max-width:56ch}
 @media (max-width:760px){.student-grid{grid-template-columns:1fr}}
-.gallery{margin:26px 0 0;padding:12px;max-width:560px}
+.gallery{margin:26px 0 0;padding:10px;max-width:280px}
+.gallery .zoom{display:block;cursor:zoom-in}
 .gallery img{display:block;width:100%;height:auto;border-radius:12px}
 .gallery figcaption{font-size:.9rem;color:var(--muted);margin:8px 4px 2px}
 
@@ -258,7 +264,7 @@ footer .joke{color:var(--violet);font-weight:600}
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#talks">Talks</a></li>
-        <li><a href="#play">Play</a></li>
+        <li><a href="play/">Play</a></li>
         <li><a href="students/">Students</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a class="lang" href="es/" hreflang="es" lang="es">ES</a></li>
@@ -391,8 +397,6 @@ footer .joke{color:var(--violet);font-weight:600}
           <li class="now"><div class="when">2026 – present</div><div class="what"><h3>Teaching Assistant</h3><p class="where">McMaster University, Thermal System Design</p><p>Lead tutorials, hold office hours and grade assignments and exams for 170 undergraduate Engineering Physics students.</p></div></li>
           <li><div class="when">Aug – Dec 2025</div><div class="what"><h3>Research Student, ELAP Scholar</h3><p class="where">McMaster University, Engineering Physics</p><p>Introduced displacement damage in 304 stainless steel by 50 keV helium ion implantation at several fluences; built a depth-resolved defect profile with variable-energy Doppler broadening PAS (S and W parameters); compared the measurements with SRIM and Geant4 simulations. This work became my undergraduate thesis.</p></div></li>
           <li><div class="when">May – Aug 2023</div><div class="what"><h3>Mitacs Research Intern</h3><p class="where">McMaster University, Positron Annihilation Group</p><p>Positron annihilation spectroscopy of thin film structures: experimental setup, measurements and data analysis; presented results at poster showcases.</p></div></li>
-          <li><div class="when">Aug – Dec 2022</div><div class="what"><h3>Research Student</h3><p class="where">Universidad Nacional de Colombia, Nuclear Research Group</p><p>Monte Carlo simulation of nuclear radioactive decay in Python, with statistical analysis of nuclear measurements.</p></div></li>
-          <li><div class="when">2021 – 2022</div><div class="what"><h3>Research Student</h3><p class="where">Universidad Nacional de Colombia, Applied Optics Group</p><p>Designed an experimental setup to measure polarization states and photoelasticity of materials, and analyzed the data.</p></div></li>
         </ol>
         <h3 class="group">Industry</h3>
         <ol class="timeline">
@@ -411,7 +415,7 @@ footer .joke{color:var(--violet);font-weight:600}
           <article class="card project"><p class="tag">Research · 2025 – present</p><h3>Positron data analysis in Python</h3><p>Pipelines to process, fit and interpret Doppler broadening and lifetime spectra, and to compare them with SRIM and Geant4 damage simulations.</p><p class="stack">Python · NumPy · pandas · Matplotlib</p></article>
           <article class="card project"><p class="tag">AWS re/Start · 2026</p><h3>Cloud architecture for a delivery company</h3><p>Highly available real-time package tracking: CloudFront and Route 53, a load balancer with EC2 Auto Scaling, event-driven updates with Lambda and SNS/SQS, least-privilege IAM and CloudWatch alarms.</p><p class="stack">AWS · Linux · Python SDK</p></article>
           <article class="card project"><p class="tag">Power BI · 2026</p><h3>Sales and inventory analytics</h3><p>Interactive dashboard on a relational model with revenue and profitability KPIs; data cleaned with Power Query, tasks automated with VBA, sales optimized with Solver.</p><p class="stack">Power BI · Excel · VBA</p></article>
-          <article class="card project wide"><p class="tag">This website · 2026</p><h3>Hand-built portfolio with a positron game</h3><p>Plain HTML, CSS and JavaScript on GitHub Pages, including the <a href="#play">positron beam game</a>, which uses the real Makhov implantation profile for steel.</p><p class="stack">HTML · CSS · JavaScript · <a href="https://github.com/AlejandraAcostaP/alejandraacostap.github.io">source on GitHub</a></p></article>
+          <article class="card project wide"><p class="tag">This website · 2026</p><h3>Hand-built portfolio with a positron game</h3><p>Plain HTML, CSS and JavaScript on GitHub Pages, including the <a href="play/">positron beam game</a>, which uses the real Makhov implantation profile for steel.</p><p class="stack">HTML · CSS · JavaScript · <a href="https://github.com/AlejandraAcostaP/alejandraacostap.github.io">source on GitHub</a></p></article>
         </div>
       </div>
     </div>
@@ -441,8 +445,8 @@ footer .joke{color:var(--violet);font-weight:600}
           <li><div class="when">2023</div><div class="what"><h3>Research poster: identifying material defects with positron annihilation spectrometry</h3><p class="where">Mitacs internship poster showcase, McMaster University</p></div></li>
         </ol>
         <figure class="card gallery" id="numat">
-          <img src="images/numat2026.jpg" width="1100" height="1100" loading="lazy" alt="Collage from NuMat 2026: Alejandra next to her poster, her conference badge in Halifax, and her certificate of presentation from Elsevier.">
-          <figcaption>NuMat 2026, Halifax: my poster, my badge, and the certificate of presentation.</figcaption>
+          <a href="images/numat2026.jpg" class="zoom"><img src="images/numat2026.jpg" width="1100" height="1100" loading="lazy" alt="Collage from NuMat 2026: Alejandra next to her poster, her conference badge in Halifax, and her certificate of presentation from Elsevier."></a>
+          <figcaption>NuMat 2026, Halifax: my poster, my badge, and the certificate of presentation. Click to enlarge.</figcaption>
         </figure>
       </div>
     </div>
@@ -452,10 +456,10 @@ footer .joke{color:var(--violet);font-weight:600}
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">✎</span><br>Science and society</h2>
       <div class="body">
-        <p>I care about what science and engineering do for the people around them, especially in Colombia. At Universidad Nacional I wrote a course essay asking how scientists and engineers can support the country's peace agreement, and I keep writing about science and its social questions.</p>
-        <ol class="timeline">
-          <li><div class="when">2016</div><div class="what"><h3>Are scientists and engineers contributing to the peace agreement in Colombia?</h3><p class="where">Course essay, Universidad Nacional de Colombia · original title: <i>¿Están los científicos e ingenieros contribuyendo al posacuerdo?</i></p><p>I argue that the science and engineering faculties at Universidad Nacional should play an active part in the post-agreement: opening spaces for debate between science, technology and society, and building technologies adapted to local needs, so that knowledge improves people's material living conditions. Includes an interview I conducted with Prof. C. A. Hernández.</p><p class="doc-link"><a href="docs/Acosta_Ciencia_y_tecnologia_en_el_posacuerdo.pdf">Read the essay (PDF, in Spanish)</a></p></div></li>
-        </ol>
+        <div class="card teaser">
+          <div><h3>Writing about science and its social questions</h3><p>What science and engineering can do for people, especially in Colombia, starting with my essay on scientists, engineers and the peace agreement.</p></div>
+          <ul class="links"><li><a class="primary" href="writing/">Read my writing →</a></li></ul>
+        </div>
       </div>
     </div>
   </section>
@@ -478,26 +482,12 @@ footer .joke{color:var(--violet);font-weight:600}
 
   <section id="play">
     <div class="wrap sec">
-      <h2><span class="sym" aria-hidden="true">e⁺</span><br>Play: find the damage</h2>
+      <h2><span class="sym" aria-hidden="true">e⁺</span><br>Play</h2>
       <div class="body">
-        <p>This is how I find radiation damage in the lab. Grab the positron gun: press on the sample, <b>pull back</b> (drag to the left) to charge it, move up or down to <b>aim</b>, and <b>release</b> to fire. The further you pull, the higher the beam energy and the deeper the positrons go. Positrons that stop inside the damaged region get trapped in its vacancies and light up. From level 4 the damage is hidden, just like in a real sample.</p>
-        <div class="card game">
-          <div class="game-top">
-            <span>Level <b id="g-level">1</b>/5</span>
-            <span>Shots left <b id="g-shots">3</b></span>
-            <span>Score <b id="g-score">0</b>/500</span>
-          </div>
-          <canvas id="g-canvas" role="img" aria-label="Cross-section of a steel sample with a damaged region. A positron gun on the left fires positrons that stop at a depth set by the beam energy."></canvas>
-          <div class="game-ctrl">
-            <label for="g-energy">Energy <b id="g-e">5.0</b> keV <span>· depth <b id="g-depth">0</b> nm</span></label>
-            <input type="range" id="g-energy" min="0.5" max="25" step="0.1" value="5">
-            <button type="button" id="g-fire" class="fire-btn">Fire</button>
-            <label for="g-aim">Aim</label>
-            <input type="range" id="g-aim" min="0" max="100" step="1" value="50">
-          </div>
-          <p id="g-msg" class="game-msg" aria-live="polite">Press on the sample, pull back to charge, aim at the orange region and release.</p>
+        <div class="card teaser">
+          <div><h3>Can you find the radiation damage?</h3><p>Pull back my positron gun, aim and fire into a steel sample, with the real implantation physics I use in the lab. Five levels.</p></div>
+          <ul class="links"><li><a class="primary" href="play/">Play the game →</a></li></ul>
         </div>
-        <p class="game-note">Real physics: positrons from a beam of energy <i>E</i> stop at a mean depth <i>z̄</i> = (40/ρ)·<i>E</i><sup>1.6</sup> nm (Makhov profile, ρ = 7.9 g/cm³ for steel), with a broad spread around it. That is why no shot can trap 100 %: your score compares each shot with the best energy possible.</p>
       </div>
     </div>
   </section>

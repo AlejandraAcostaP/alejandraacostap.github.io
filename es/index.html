@@ -120,6 +120,11 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .project .stack{font-size:.88rem;color:var(--muted);margin:0}
 @media (max-width:760px){.project-grid{grid-template-columns:1fr}}
 .doc-link{margin-top:6px!important;font-weight:600}
+.teaser{padding:20px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.teaser h3{margin:0 0 4px;font-size:1.1rem}
+.teaser p{margin:0;max-width:52ch}
+.page-body .sec{grid-template-columns:1fr}
+.page-body .sec > h2{display:none}
 .page-hero{padding:48px 0 30px}
 .page-hero .wrap{grid-template-columns:1fr}
 .page-hero .lede{max-width:56ch}
@@ -136,7 +141,8 @@ ol.steps span{font-size:.85rem;color:var(--muted)}
 .invite{padding:18px 22px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-left:5px solid var(--orange)}
 .invite p{margin:0;max-width:56ch}
 @media (max-width:760px){.student-grid{grid-template-columns:1fr}}
-.gallery{margin:26px 0 0;padding:12px;max-width:560px}
+.gallery{margin:26px 0 0;padding:10px;max-width:280px}
+.gallery .zoom{display:block;cursor:zoom-in}
 .gallery img{display:block;width:100%;height:auto;border-radius:12px}
 .gallery figcaption{font-size:.9rem;color:var(--muted);margin:8px 4px 2px}
 
@@ -259,7 +265,7 @@ footer .joke{color:var(--violet);font-weight:600}
         <li><a href="#experience">Experiencia</a></li>
         <li><a href="#projects">Proyectos</a></li>
         <li><a href="#talks">Charlas</a></li>
-        <li><a href="#play">Juego</a></li>
+        <li><a href="juega/">Juego</a></li>
         <li><a href="estudiantes/">Estudiantes</a></li>
         <li><a href="#contact">Contacto</a></li>
         <li><a class="lang" href="../" hreflang="en" lang="en">EN</a></li>
@@ -392,8 +398,6 @@ footer .joke{color:var(--violet);font-weight:600}
           <li class="now"><div class="when">2026 – hoy</div><div class="what"><h3>Asistente de docencia</h3><p class="where">McMaster University, Thermal System Design</p><p>Dirijo tutorías, atiendo horas de consulta y califico tareas y exámenes de 170 estudiantes de pregrado de Física de Ingeniería.</p></div></li>
           <li><div class="when">ago – dic 2025</div><div class="what"><h3>Estudiante investigadora, becaria ELAP</h3><p class="where">McMaster University, Física de Ingeniería</p><p>Introduje daño por desplazamiento en acero inoxidable 304 mediante implantación de iones de helio de 50 keV a varias fluencias; construí un perfil de defectos en profundidad con PAS de ensanchamiento Doppler de energía variable (parámetros S y W); comparé las mediciones con simulaciones en SRIM y Geant4. Este trabajo fue mi tesis de pregrado.</p></div></li>
           <li><div class="when">may – ago 2023</div><div class="what"><h3>Pasante de investigación Mitacs</h3><p class="where">McMaster University, Grupo de Aniquilación de Positrones</p><p>Espectroscopía de aniquilación de positrones en estructuras de películas delgadas: montaje experimental, mediciones y análisis de datos; presenté los resultados en sesiones de pósteres.</p></div></li>
-          <li><div class="when">ago – dic 2022</div><div class="what"><h3>Estudiante investigadora</h3><p class="where">Universidad Nacional de Colombia, Grupo de Física Nuclear</p><p>Simulación Monte Carlo del decaimiento radiactivo en Python, con análisis estadístico de mediciones nucleares.</p></div></li>
-          <li><div class="when">2021 – 2022</div><div class="what"><h3>Estudiante investigadora</h3><p class="where">Universidad Nacional de Colombia, Grupo de Óptica Aplicada</p><p>Diseñé un montaje experimental para medir estados de polarización y fotoelasticidad de materiales, y analicé los datos.</p></div></li>
         </ol>
         <h3 class="group">Industria</h3>
         <ol class="timeline">
@@ -412,7 +416,7 @@ footer .joke{color:var(--violet);font-weight:600}
           <article class="card project"><p class="tag">Investigación · 2025 – hoy</p><h3>Análisis de datos de positrones en Python</h3><p>Flujos de trabajo para procesar, ajustar e interpretar espectros de ensanchamiento Doppler y de tiempo de vida, y compararlos con simulaciones de daño en SRIM y Geant4.</p><p class="stack">Python · NumPy · pandas · Matplotlib</p></article>
           <article class="card project"><p class="tag">AWS re/Start · 2026</p><h3>Arquitectura en la nube para una empresa de entregas</h3><p>Rastreo de paquetes en tiempo real con alta disponibilidad: CloudFront y Route 53, balanceador de carga con EC2 Auto Scaling, actualizaciones por eventos con Lambda y SNS/SQS, IAM de mínimo privilegio y alarmas de CloudWatch.</p><p class="stack">AWS · Linux · Python SDK</p></article>
           <article class="card project"><p class="tag">Power BI · 2026</p><h3>Análisis de ventas e inventario</h3><p>Tablero interactivo sobre un modelo relacional con KPI de ingresos y rentabilidad; datos limpiados con Power Query, tareas automatizadas con VBA y ventas optimizadas con Solver.</p><p class="stack">Power BI · Excel · VBA</p></article>
-          <article class="card project wide"><p class="tag">Este sitio web · 2026</p><h3>Portafolio hecho a mano con un juego de positrones</h3><p>HTML, CSS y JavaScript puros en GitHub Pages, incluido el <a href="#play">juego del haz de positrones</a>, que usa el perfil de implantación de Makhov real para el acero.</p><p class="stack">HTML · CSS · JavaScript · <a href="https://github.com/AlejandraAcostaP/alejandraacostap.github.io">código en GitHub</a></p></article>
+          <article class="card project wide"><p class="tag">Este sitio web · 2026</p><h3>Portafolio hecho a mano con un juego de positrones</h3><p>HTML, CSS y JavaScript puros en GitHub Pages, incluido el <a href="juega/">juego del haz de positrones</a>, que usa el perfil de implantación de Makhov real para el acero.</p><p class="stack">HTML · CSS · JavaScript · <a href="https://github.com/AlejandraAcostaP/alejandraacostap.github.io">código en GitHub</a></p></article>
         </div>
       </div>
     </div>
@@ -442,8 +446,8 @@ footer .joke{color:var(--violet);font-weight:600}
           <li><div class="when">2023</div><div class="what"><h3>Póster de investigación: identificación de defectos en materiales con espectrometría de aniquilación de positrones</h3><p class="where">Muestra de pósteres de pasantías Mitacs, McMaster University</p></div></li>
         </ol>
         <figure class="card gallery" id="numat">
-          <img src="../images/numat2026.jpg" width="1100" height="1100" loading="lazy" alt="Collage de NuMat 2026: Alejandra junto a su póster, su escarapela del congreso en Halifax y su certificado de presentación de Elsevier.">
-          <figcaption>NuMat 2026, Halifax: mi póster, mi escarapela y el certificado de presentación.</figcaption>
+          <a href="../images/numat2026.jpg" class="zoom"><img src="../images/numat2026.jpg" width="1100" height="1100" loading="lazy" alt="Collage de NuMat 2026: Alejandra junto a su póster, su escarapela del congreso en Halifax y su certificado de presentación de Elsevier."></a>
+          <figcaption>NuMat 2026, Halifax: mi póster, mi escarapela y el certificado de presentación. Haz clic para ampliar.</figcaption>
         </figure>
       </div>
     </div>
@@ -453,10 +457,10 @@ footer .joke{color:var(--violet);font-weight:600}
     <div class="wrap sec">
       <h2><span class="sym" aria-hidden="true">✎</span><br>Ciencia y sociedad</h2>
       <div class="body">
-        <p>Me importa lo que la ciencia y la ingeniería hacen por la gente, especialmente en Colombia. En la Universidad Nacional escribí un ensayo de curso sobre cómo los científicos e ingenieros pueden aportar al acuerdo de paz del país, y sigo escribiendo sobre la ciencia y sus preguntas sociales.</p>
-        <ol class="timeline">
-          <li><div class="when">2016</div><div class="what"><h3>¿Están los científicos e ingenieros contribuyendo al posacuerdo?</h3><p class="where">Ensayo de curso, Universidad Nacional de Colombia</p><p>Planteo que las facultades de ciencias e ingeniería de la Universidad Nacional deben tener un papel activo en el posacuerdo: abrir espacios de debate entre ciencia, tecnología y sociedad, y construir tecnologías adaptadas a las necesidades locales, para que el conocimiento mejore las condiciones de vida materiales de la gente. Incluye una entrevista que le hice al Prof. C. A. Hernández.</p><p class="doc-link"><a href="../docs/Acosta_Ciencia_y_tecnologia_en_el_posacuerdo.pdf">Leer el ensayo (PDF)</a></p></div></li>
-        </ol>
+        <div class="card teaser">
+          <div><h3>Escritos sobre la ciencia y sus preguntas sociales</h3><p>Lo que la ciencia y la ingeniería pueden hacer por la gente, especialmente en Colombia, empezando por mi ensayo sobre científicos, ingenieros y el acuerdo de paz.</p></div>
+          <ul class="links"><li><a class="primary" href="escritos/">Leer mis escritos →</a></li></ul>
+        </div>
       </div>
     </div>
   </section>
@@ -479,26 +483,12 @@ footer .joke{color:var(--violet);font-weight:600}
 
   <section id="play">
     <div class="wrap sec">
-      <h2><span class="sym" aria-hidden="true">e⁺</span><br>Juega: encuentra el daño</h2>
+      <h2><span class="sym" aria-hidden="true">e⁺</span><br>Juego</h2>
       <div class="body">
-        <p>Así encuentro el daño por radiación en el laboratorio. Toma el cañón de positrones: presiona sobre la muestra, <b>jala hacia atrás</b> (arrastra a la izquierda) para cargarlo, muévete arriba o abajo para <b>apuntar</b> y <b>suelta</b> para disparar. Cuanto más jalas, mayor es la energía del haz y más profundo llegan los positrones. Los que se detienen dentro de la región dañada quedan atrapados en sus vacancias y se iluminan. Desde el nivel 4 el daño está oculto, como en una muestra real.</p>
-        <div class="card game">
-          <div class="game-top">
-            <span>Nivel <b id="g-level">1</b>/5</span>
-            <span>Disparos <b id="g-shots">3</b></span>
-            <span>Puntaje <b id="g-score">0</b>/500</span>
-          </div>
-          <canvas id="g-canvas" role="img" aria-label="Corte de una muestra de acero con una región dañada. Un cañón de positrones a la izquierda dispara positrones que se detienen a una profundidad fijada por la energía del haz."></canvas>
-          <div class="game-ctrl">
-            <label for="g-energy">Energía <b id="g-e">5.0</b> keV <span>· profundidad <b id="g-depth">0</b> nm</span></label>
-            <input type="range" id="g-energy" min="0.5" max="25" step="0.1" value="5">
-            <button type="button" id="g-fire" class="fire-btn">Disparar</button>
-            <label for="g-aim">Apuntar</label>
-            <input type="range" id="g-aim" min="0" max="100" step="1" value="50">
-          </div>
-          <p id="g-msg" class="game-msg" aria-live="polite">Presiona sobre la muestra, jala hacia atrás para cargar, apunta a la región naranja y suelta.</p>
+        <div class="card teaser">
+          <div><h3>¿Puedes encontrar el daño por radiación?</h3><p>Jala mi cañón de positrones, apunta y dispara a una muestra de acero, con la física de implantación real que uso en el laboratorio. Cinco niveles.</p></div>
+          <ul class="links"><li><a class="primary" href="juega/">Jugar →</a></li></ul>
         </div>
-        <p class="game-note">Física real: los positrones de un haz de energía <i>E</i> se detienen a una profundidad media <i>z̄</i> = (40/ρ)·<i>E</i><sup>1.6</sup> nm (perfil de Makhov, ρ = 7,9 g/cm³ para el acero), con una dispersión amplia alrededor. Por eso ningún disparo atrapa el 100 %: tu puntaje compara cada disparo con la mejor energía posible.</p>
       </div>
     </div>
   </section>
