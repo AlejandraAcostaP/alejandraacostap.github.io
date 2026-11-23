@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pour les étudiants · Alejandra Acosta</title>
+<meta name="description" content="Pour les étudiants des écoles et universités publiques de Colombie et d’Amérique latine : comment Alejandra Acosta est passée de Soacha à la recherche au Canada, et les programmes qui l’ont aidée.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:url" content="https://alejandraacostap.github.io/fr/etudiants/">
+<meta property="og:title" content="Pour les étudiants · Alejandra Acosta">
+<meta property="og:description" content="Chercheuse en maîtrise à l’Université McMaster : dommages d’irradiation, spectroscopie d’annihilation de positrons (PAS/PALS), Python et Geant4.">
+<meta property="og:image" content="https://alejandraacostap.github.io/images/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://alejandraacostap.github.io/students/"><link rel="alternate" hreflang="es" href="https://alejandraacostap.github.io/es/estudiantes/"><link rel="alternate" hreflang="fr" href="https://alejandraacostap.github.io/fr/etudiants/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237A2238'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='white'%3Ee%2B%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* brand palette: maroon + rose on cream, gold accents (dark mode: gold primary) */
+  --paper:#FBF7F1; --surface:#FFFFFF; --tint:#F4ECE2; --ink:#2A1A1F; --muted:#6B5A5F; --rule:#E8DDD2;
+  --violet:#7A2238; --blue:#A0485A; --soft-violet:#E3C9CF; --soft-blue:#EBD7C4;
+  --orange:#9A6B12; --orange-soft:#F6E7C8; --hit:#D39A1C;
+  --sans:"Plus Jakarta Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1A1215; --surface:#24191D; --tint:#2B1E23; --ink:#F3EAE4; --muted:#BFAFB3; --rule:#3D2C32;
+    --violet:#E2B65A; --blue:#E39AAE; --soft-violet:#4A3A22; --soft-blue:#4A2A35;
+    --orange:#F2A07B; --orange-soft:#3A2418; --hit:#F5C860;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1A1215; --surface:#24191D; --tint:#2B1E23; --ink:#F3EAE4; --muted:#BFAFB3; --rule:#3D2C32;
+    --violet:#E2B65A; --blue:#E39AAE; --soft-violet:#4A3A22; --soft-blue:#4A2A35;
+    --orange:#F2A07B; --orange-soft:#3A2418; --hit:#F5C860;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--violet);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--blue)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
+.mark{font-weight:800;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.mark .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--violet),var(--blue));color:var(--paper);font-size:.8rem;display:grid;place-items:center;font-weight:800}
+nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0;flex-wrap:wrap}
+nav a{font-size:.95rem;color:var(--muted);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--violet)}
+
+/* hero */
+.hero{padding:64px 0 60px;background:
+  radial-gradient(560px 380px at 6% 10%, color-mix(in srgb,var(--violet) 20%,transparent), transparent 70%),
+  radial-gradient(620px 420px at 95% 95%, color-mix(in srgb,var(--blue) 18%,transparent), transparent 70%),
+  var(--paper)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hello{display:inline-block;font-weight:600;font-size:.95rem;color:var(--violet);background:var(--tint);border:1px solid var(--rule);padding:4px 12px;border-radius:999px;margin:0 0 18px}
+.hero h1{font-size:clamp(2.5rem,6vw,4rem);line-height:1.02;font-weight:800;letter-spacing:-.035em;margin:0 0 14px}
+.role{font-size:1.02rem;color:var(--muted);margin:0 0 20px;line-height:1.5}
+.lede{font-size:1.18rem;line-height:1.6;margin:0 0 28px;max-width:38ch}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.links a{display:inline-block;font-weight:600;font-size:.95rem;padding:9px 16px;border-radius:12px;text-decoration:none;border:1px solid var(--rule);background:var(--surface);color:var(--ink)}
+.links a.primary{background:var(--violet);border-color:var(--violet);color:var(--paper)}
+.links a.primary:hover{background:var(--blue);border-color:var(--blue)}
+.links a:not(.primary):hover{border-color:var(--violet);color:var(--violet)}
+
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:20px;box-shadow:0 20px 44px -26px rgba(94,42,54,.45)}
+.annihilation{padding:16px 16px 14px;margin:0}
+.annihilation svg{display:block;width:100%;height:auto}
+.annihilation figcaption{font-size:.9rem;color:var(--muted);line-height:1.5;margin:6px 4px 0}
+.annihilation .eq{font-weight:700;color:var(--ink)}
+.replay{margin:12px 4px 0;font:600 .9rem var(--sans);color:var(--orange);background:var(--orange-soft);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.replay:hover{filter:brightness(.97)}
+.particle text{font:700 15px var(--sans);fill:#fff;text-anchor:middle;dominant-baseline:central}
+.e-minus circle{fill:var(--blue)} .e-plus circle{fill:var(--violet)}
+.photon{fill:none;stroke:var(--orange);stroke-width:2.6;stroke-linecap:round}
+.gamma{font:700 14px var(--sans);fill:var(--orange)}
+.flash{fill:var(--orange);opacity:0}
+.trail{stroke:var(--rule);stroke-width:2;stroke-dasharray:3 6}
+/* animation only when JS adds .play (and the visitor allows motion) */
+.play .e-minus{animation:inR 1.3s cubic-bezier(.5,0,.9,.6) both}
+.play .e-plus{animation:inL 1.3s cubic-bezier(.5,0,.9,.6) both}
+@keyframes inR{0%{transform:translateX(0);opacity:1}88%{transform:translateX(178px);opacity:1}100%{transform:translateX(182px);opacity:0}}
+@keyframes inL{0%{transform:translateX(0);opacity:1}88%{transform:translateX(-178px);opacity:1}100%{transform:translateX(-182px);opacity:0}}
+.play .flash{animation:flash .7s ease-out 1.15s both;transform-origin:230px 160px}
+@keyframes flash{0%{opacity:.95;transform:scale(.2)}100%{opacity:0;transform:scale(3.2)}}
+.play .photon{stroke-dasharray:1;animation:shoot .9s ease-out 1.25s both}
+@keyframes shoot{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.play .gamma{animation:fadein .5s ease-out 2s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.play *{animation:none!important}}
+
+.name-row{display:flex;align-items:center;gap:22px;margin:0 0 14px}
+.name-row h1{margin:0}
+.me{width:124px;height:124px;border-radius:50%;object-fit:cover;flex:none;border:5px solid var(--surface);box-shadow:0 16px 34px -18px rgba(94,42,54,.55)}
+@media (max-width:560px){.me{width:92px;height:92px}.name-row{gap:16px}}
+nav a.lang{color:var(--violet);font-weight:700;border:1px solid var(--rule);border-radius:8px;padding:2px 8px}
+ul.chips{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+ul.chips li{font-size:.92rem;background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:6px 14px}
+.path p{max-width:62ch}
+ol.steps{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:s}
+ol.steps li{position:relative;padding:14px 12px 12px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--violet)}
+ol.steps li:last-child{border-top-color:var(--orange)}
+ol.steps b{display:block;font-size:.98rem}
+ol.steps span{font-size:.85rem;color:var(--muted)}
+@media (max-width:760px){ol.steps{grid-template-columns:1fr 1fr}}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.project{padding:18px 20px}
+.project.wide{grid-column:1/-1}
+.project h3{font-size:1.08rem;margin:2px 0 6px}
+.project p{margin:0 0 8px;font-size:.98rem}
+.project .tag{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);margin:0}
+.project .stack{font-size:.88rem;color:var(--muted);margin:0}
+@media (max-width:760px){.project-grid{grid-template-columns:1fr}}
+.doc-link{margin-top:6px!important;font-weight:600}
+.teaser{padding:20px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.teaser h3{margin:0 0 4px;font-size:1.1rem}
+.teaser p{margin:0;max-width:52ch}
+.page-body .sec{grid-template-columns:1fr}
+.page-body .sec > h2{display:none}
+.page-hero{padding:48px 0 30px}
+.page-hero .wrap{grid-template-columns:1fr}
+.page-hero .lede{max-width:56ch}
+.hello a.back{text-decoration:none;color:inherit}
+.to-students{margin:18px 0 0;font-weight:700}
+.lead-in{font-size:1.08rem;max-width:62ch}
+.student-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;margin:6px 0 18px}
+.student{padding:18px 22px}
+.student h3{font-size:1.08rem;margin:0 0 10px}
+.student ul{margin:0;padding-left:18px}
+.student li{margin:0 0 10px}
+.student p{margin:0 0 12px;font-size:.98rem}
+.small-note{font-size:.88rem!important;color:var(--muted)}
+.invite{padding:18px 22px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-left:5px solid var(--orange)}
+.invite p{margin:0;max-width:56ch}
+@media (max-width:760px){.student-grid{grid-template-columns:1fr}}
+.gallery{margin:26px 0 0;padding:10px;max-width:280px}
+.gallery .zoom{display:block;cursor:zoom-in}
+.gallery img{display:block;width:100%;height:auto;border-radius:12px}
+.gallery figcaption{font-size:.9rem;color:var(--muted);margin:8px 4px 2px}
+
+/* facts strip */
+.facts{padding:34px 0 8px}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.facts li{padding:18px 20px;border-radius:16px;background:var(--tint);border:1px solid var(--rule)}
+.facts b{display:block;font-size:1.7rem;letter-spacing:-.02em;color:var(--orange);line-height:1.1;margin-bottom:6px}
+.facts span{font-size:.95rem;color:var(--muted);line-height:1.45;display:block}
+.facts p.note{font-size:.95rem;color:var(--muted);margin:0 0 14px;font-weight:600}
+
+main section{padding:60px 0}
+main section.alt{background:var(--tint)}
+.sec{display:grid;grid-template-columns:210px 1fr;gap:40px}
+.sec h2{font-size:1.5rem;line-height:1.2;margin:0;font-weight:800;letter-spacing:-.01em}
+.sec h2 .sym{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 8px;border-radius:10px;background:var(--surface);border:1px solid var(--rule);color:var(--violet);font-size:1rem;font-weight:800;margin-bottom:12px}
+.body{max-width:70ch}
+.body p{margin:0 0 1em}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:6px 0 24px}
+.theme{padding:20px 22px;border-top:4px solid var(--violet)}
+.theme.blue{border-top-color:var(--blue)}
+.theme h3{font-size:1.1rem;margin:0 0 6px;font-weight:700}
+.theme p{margin:0;font-size:1rem}
+.spectrum{padding:18px 18px 12px;margin:0;max-width:540px}
+.spectrum svg{display:block;width:100%;height:auto}
+.spectrum figcaption{font-size:.9rem;color:var(--muted);margin-top:8px;line-height:1.5}
+.grid line{stroke:var(--rule);stroke-width:1}
+.axis{fill:var(--muted);font-family:var(--sans);font-size:19px}
+.pts circle{fill:var(--soft-violet)}
+.trace{fill:none;stroke:url(#trace-grad);stroke-width:3;stroke-linejoin:round}
+.slope{font-family:var(--sans);font-style:italic;font-weight:700;font-size:24px;fill:var(--orange)}
+.tools{font-size:.93rem;color:var(--muted);margin-top:20px}
+.tools b{color:var(--ink)}
+
+ol.timeline{list-style:none;margin:0;padding:0;position:relative}
+ol.timeline li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:0 0 22px;position:relative}
+.when{font-size:.9rem;font-weight:700;color:var(--blue);padding-top:2px}
+.what{position:relative;padding-left:22px;border-left:2px solid var(--rule)}
+.what::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--violet)}
+li.now .what::before{background:var(--orange);border-color:var(--orange)}
+.what h3{font-size:1.06rem;margin:0;font-weight:700;line-height:1.35}
+.where{font-size:.93rem;color:var(--muted);margin:2px 0 6px}
+.what p{margin:0}
+h3.group{font-size:.98rem;font-weight:700;color:var(--violet);margin:30px 0 14px}
+h3.group:first-child{margin-top:0}
+
+dl.facts-list{margin:0;display:grid;grid-template-columns:150px 1fr;gap:12px 20px}
+dl.facts-list dt{font-size:.92rem;font-weight:700;color:var(--blue);padding-top:2px}
+dl.facts-list dd{margin:0}
+
+.contact-card{padding:26px 28px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.contact-card p{margin:0;max-width:46ch}
+
+footer{padding:34px 0 46px;font-size:.92rem;color:var(--muted);border-top:1px solid var(--rule)}
+footer p{margin:0 0 6px}
+.detector{display:inline-flex;align-items:center;gap:18px;margin-top:16px;padding:14px 20px 14px 14px;max-width:100%}
+.det-icon{width:120px;height:60px;flex:none}
+.det-em circle{fill:var(--blue)} .det-ep circle{fill:var(--violet)}
+.det-icon text{font:700 9px var(--sans);fill:#fff;text-anchor:middle;dominant-baseline:central}
+.det-g{stroke:var(--orange);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:50;stroke-dashoffset:0}
+.det-flash{fill:var(--orange);opacity:0}
+.det-head{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.led{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.digits{font:700 2rem/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;color:var(--violet);margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.game{padding:16px 16px 14px}
+.game-top{display:flex;gap:22px;flex-wrap:wrap;font-size:.92rem;color:var(--muted);margin:0 4px 10px}
+.game-top b{color:var(--violet)}
+#g-canvas{display:block;width:100%;height:300px;border-radius:12px;background:var(--tint);touch-action:none;cursor:grab;user-select:none}
+#g-canvas.dragging{cursor:grabbing}
+.game-ctrl{display:grid;grid-template-columns:minmax(150px,auto) 1fr auto;gap:6px 14px;align-items:center;margin:14px 4px 0}
+.game-ctrl label{font-size:.92rem}
+.game-ctrl .fire-btn{grid-row:span 2}
+@media (max-width:560px){.game-ctrl{grid-template-columns:1fr auto}.game-ctrl label{grid-column:1/-1}.game-ctrl .fire-btn{grid-row:auto;grid-column:2;grid-row-start:2}}
+.game-ctrl label span{color:var(--muted)}
+.game-ctrl input[type=range]{width:100%;accent-color:var(--violet)}
+.fire-btn{font:700 .95rem var(--sans);color:var(--paper);background:var(--orange);border:0;border-radius:12px;padding:10px 18px;cursor:pointer}
+.fire-btn:hover{filter:brightness(1.07)}
+.fire-btn:disabled{opacity:.5;cursor:default}
+.game-msg{margin:10px 4px 0;font-weight:600;color:var(--ink);min-height:1.6em}
+.game-note{font-size:.88rem;color:var(--muted);margin-top:14px}
+.det-note{font-size:.85rem;color:var(--muted);line-height:1.4}
+.det-hint{font-size:.85rem;font-weight:600;color:var(--orange);margin-top:6px;min-height:1.4em}
+.detector{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.detector:hover{transform:translateY(-2px);box-shadow:0 24px 48px -24px rgba(94,42,54,.6)}
+.detector:hover .led{animation-duration:.5s}
+.detector:active{transform:scale(.98)}
+.fire .det-em{animation:dIn .9s cubic-bezier(.5,0,.9,.6) both}
+.fire .det-ep{animation:dIn2 .9s cubic-bezier(.5,0,.9,.6) both}
+@keyframes dIn{88%{transform:translateX(44px);opacity:1}100%{transform:translateX(46px);opacity:0}}
+@keyframes dIn2{88%{transform:translateX(-44px);opacity:1}100%{transform:translateX(-46px);opacity:0}}
+.fire .det-flash{animation:dFlash .6s ease-out .8s both;transform-origin:60px 30px}
+@keyframes dFlash{0%{opacity:.95;transform:scale(.3)}100%{opacity:0;transform:scale(2.6)}}
+.fire .det-g{animation:dShoot .6s ease-out .85s both}
+@keyframes dShoot{from{stroke-dashoffset:50}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion: reduce){.led,.fire *{animation:none!important}}
+@media (max-width:560px){.detector{flex-direction:column;align-items:flex-start}}
+footer .joke{color:var(--violet);font-weight:600}
+
+@media (max-width:880px){
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .sec{grid-template-columns:1fr;gap:16px}
+  .research-grid,.facts ul{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  ol.timeline li,dl.facts-list{grid-template-columns:1fr;gap:4px}
+  dl.facts-list dd{margin-bottom:10px}
+  nav ul{gap:14px}
+}
+.path .map{float:right;width:290px;margin:4px 0 18px 28px;padding:12px 12px 14px;overflow:hidden}
+.map svg{display:block;width:100%;height:auto;border-radius:12px}
+.map .sea{fill:var(--tint)}
+.map .nb{fill:var(--paper);stroke:var(--rule);stroke-width:1}
+.map .co{fill:var(--soft-violet);stroke:var(--violet);stroke-width:1.4;stroke-linejoin:round}
+.map text{font-family:var(--sans)}
+.map .sea-l{fill:var(--muted);font-size:12.5px;font-style:italic;text-anchor:middle}
+.map .nb-l{fill:var(--muted);font-size:11.5px;letter-spacing:.08em;text-anchor:middle}
+.map .co-l{fill:var(--violet);font-size:14px;font-weight:800;letter-spacing:.14em;text-anchor:middle;opacity:.75}
+.map .dot{fill:var(--orange);stroke:var(--surface);stroke-width:2}
+.map .pulse{fill:none;stroke:var(--orange);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:map-pulse 2.2s ease-out infinite}
+@keyframes map-pulse{from{transform:scale(1);opacity:.9}to{transform:scale(3.4);opacity:0}}
+.map .pin-l{fill:var(--ink);font-size:16px;font-weight:800;text-anchor:end;paint-order:stroke;stroke:var(--soft-violet);stroke-width:4px;stroke-linejoin:round}
+.map .pin-s{fill:var(--ink);font-size:12px;font-weight:600;text-anchor:end;paint-order:stroke;stroke:var(--soft-violet);stroke-width:3px;stroke-linejoin:round}
+.map figcaption{font-size:.85rem;color:var(--muted);margin:10px 4px 0;line-height:1.45}
+.map figcaption b{color:var(--ink)}
+.path ol.steps{clear:both}
+nav li.langs{display:flex;gap:6px}
+@media (prefers-reduced-motion: reduce){.map .pulse{animation:none;opacity:0}}
+@media (max-width:760px){.path .map{float:none;width:auto;max-width:340px;margin:0 auto 1.2em}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="../"><span class="dot" aria-hidden="true">e⁺</span>Alejandra Acosta</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#research">Recherche</a></li>
+        <li><a href="../#path">Parcours</a></li>
+        <li><a href="../#experience">Expérience</a></li>
+        <li><a href="../#projects">Projets</a></li>
+        <li><a href="../#talks">Exposés</a></li>
+        <li><a href="../jouer/">Jeu</a></li>
+        <li><a href="../etudiants/">Étudiants</a></li>
+        <li><a href="../#contact">Contact</a></li>
+        <li class="langs"><a class="lang" href="../../students/" hreflang="en" lang="en">EN</a> <a class="lang" href="../../es/estudiantes/" hreflang="es" lang="es">ES</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero page-hero">
+  <div class="wrap">
+    <div>
+      <p class="hello"><a class="back" href="../">← Alejandra Acosta</a></p>
+      <div class="name-row">
+        <img class="me" src="../../images/alejandra.jpg" width="480" height="480" alt="Portrait d’Alejandra Acosta">
+        <h1>Pour les étudiants</h1>
+      </div>
+      <p class="lede">D’une école publique de Soacha à la recherche sur les matériaux nucléaires au Canada : ce que j’ai appris, les programmes qui m’ont aidée et comment m’écrire.</p>
+    </div>
+  </div>
+</div>
+
+<main class="page-body">
+  <section id="students">
+    <div class="wrap sec">
+      <h2><span class="sym" aria-hidden="true">✦</span><br>Pour les étudiants</h2>
+      <div class="body">
+        <p class="lead-in">Si vous étudiez dans une école ou une université publique en Colombie, ou ailleurs en Amérique latine, et que la recherche à l’étranger vous semble hors de portée : cette section est pour vous. Je suis passée par là, moi aussi.</p>
+        <div class="student-grid">
+          <article class="card student">
+            <h3>Ce que j’aurais aimé savoir</h3>
+            <ul>
+              <li><b>Pas besoin d’un anglais parfait pour commencer.</b> J’ai appris l’anglais à l’université et je l’ai amélioré en le pratiquant.</li>
+              <li><b>Il n’est jamais trop tard pour changer de voie.</b> J’ai commencé en sociologie avant la physique, et ces années comptent aussi.</li>
+              <li><b>Une occasion en ouvre une autre.</b> Un stage de 12 semaines a mené à une bourse, puis à mon mémoire, à une conférence et à une maîtrise.</li>
+              <li><b>S’engager pour sa communauté compte.</b> Présider le conseil des élèves de mon école m’a appris autant que n’importe quel cours.</li>
+            </ul>
+          </article>
+          <article class="card student">
+            <h3>Les programmes qui m’ont amenée au Canada</h3>
+            <p><b>Stage de recherche Mitacs Globalink.</b> Un stage de recherche rémunéré de 12 semaines auprès d’un professeur d’une université canadienne, pour les étudiants de premier cycle de pays partenaires, dont la Colombie (seules certaines universités sont admissibles). La candidature se fait au second semestre (pour 2027, la date limite était le 16 septembre 2026) et les stages ont lieu entre mai et octobre. Il faut une lettre de recommandation d’un professeur. <a href="https://www.mitacs.ca/our-programs/globalink-research-internship/">Page officielle</a></p>
+            <p><b>Programme des futurs leaders dans les Amériques (PFLA/ELAP).</b> Une bourse du gouvernement du Canada pour les étudiants d’Amérique latine et des Caraïbes, dont la Colombie, pour un court séjour d’études ou de recherche au Canada, au premier cycle, à la maîtrise ou au doctorat. C’est l’université canadienne qui présente la demande pour vous : il vous faut donc un hôte sur place, soit une entente d’échange avec votre université, soit, pour la recherche, un professeur qui vous invite. À McMaster, la date limite est en mars. <a href="https://educanada.ca/scholarships-bourses/can/institutions/elap-pfla.aspx">Page officielle</a></p>
+            <p class="small-note">Les dates et les règles changent chaque année : consultez toujours les pages officielles et renseignez-vous auprès du bureau des relations internationales de votre université.</p>
+          </article>
+        </div>
+        <div class="card invite">
+          <p><b>Écrivez-moi.</b> Si vous êtes étudiant ou étudiante et voulez tenter ce parcours, envoyez-moi un courriel avec l’objet « Estudiante ». Je réponds dès que possible, en espagnol ou en anglais.</p>
+          <ul class="links"><li><a class="primary" href="mailto:maleacostap@gmail.com?subject=Estudiante">Écrivez-moi</a></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Je remercie mes parents et mon frère ; l’éducation publique colombienne, de mes enseignants de l’Institución Educativa San Mateo à l’Universidad Nacional de Colombia ; ainsi que le Prof. Peter Mascher, le Groupe d’annihilation de positrons de l’Université McMaster et mes collaborateurs pour leur soutien.</p>
+    <p>© 2026 Alejandra Acosta</p>
+    <div class="detector card" id="visits" role="button" tabindex="0" aria-label="Tirer un positron sur le détecteur de visiteurs" hidden>
+      <svg class="det-icon" viewBox="0 0 120 60" aria-hidden="true">
+        <line class="det-g g1" x1="60" y1="30" x2="20" y2="6"/>
+        <line class="det-g g2" x1="60" y1="30" x2="100" y2="54"/>
+        <circle class="det-flash" cx="60" cy="30" r="9"/>
+        <g class="det-em"><circle cx="14" cy="30" r="9"/><text x="14" y="30">e⁻</text></g>
+        <g class="det-ep"><circle cx="106" cy="30" r="9"/><text x="106" y="30">e⁺</text></g>
+      </svg>
+      <div class="det-body">
+        <div class="det-head"><span class="led" aria-hidden="true"></span>Détecteur de visiteurs · comptage</div>
+        <div class="digits" id="visit-count" aria-live="polite">000000</div>
+        <div class="det-note">événements d’annihilation enregistrés (des visiteurs, pas des positrons : aucun rayon gamma n’a été émis)</div>
+        <div class="det-hint" id="det-hint">Cliquez sur le détecteur pour tirer un positron ⚡</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+fetch((() => {
+  // GoatCounter caches each counter URL; rotate between equivalent start dates (all before the site existed)
+  // every 10 minutes so the number never gets stuck on an old cached value.
+  const k = Math.floor(Date.now() / 600000) % 10;
+  const start = new Date(Date.UTC(2026, 10, 1 - k)).toISOString().slice(0, 10);
+  return 'https://alejandraacostap.goatcounter.com/counter/TOTAL.json?start=' + start;
+})(), { cache: 'no-store' })
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(d => {
+    const n = parseInt(String(d.count).replace(/\D/g, ''), 10) || 0;
+    const box = document.getElementById('visits'), out = document.getElementById('visit-count');
+    const pad = v => String(v).padStart(6, '0');
+    box.hidden = false;
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (still) { out.textContent = pad(n); return; }
+    box.classList.add('fire');
+    const t0 = performance.now(), dur = 1400;
+    (function step(t) {
+      const k = Math.min(1, (t - t0) / dur);
+      out.textContent = pad(Math.round(n * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) requestAnimationFrame(step);
+    })(t0);
+  })
+  .catch(() => {});
+(function () {
+  const box = document.getElementById('visits'), hint = document.getElementById('det-hint');
+  const lines = [
+    'Positron tiré. Il s’est annihilé. Deux photons de 511 keV, zéro visiteur de plus.',
+    'Encore un ! Vos clics ne comptent pas, seules les vraies visites comptent.',
+    'Vous faites maintenant officiellement de la spectroscopie de positrons.',
+    'Attention, à ce rythme il vous faudra une formation en radioprotection.',
+    'Celui-là a été piégé dans une lacune et a vécu un peu plus longtemps.'
+  ];
+  let shots = 0;
+  function fire() {
+    box.classList.remove('fire'); void box.offsetWidth; box.classList.add('fire');
+    shots++;
+    hint.textContent = (shots <= lines.length ? lines[shots - 1] : 'Positrons tirés : ' + shots + '. Votre détecteur obtient de bonnes statistiques.');
+  }
+  box.addEventListener('click', fire);
+  box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); } });
+})();
+</script>
+<script>
+(function(){
+  var svg=document.getElementById('ann'), btn=document.getElementById('replay');
+  if(!svg) return;
+  var still=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(){ if(still) return; svg.classList.remove('play'); void svg.getBoundingClientRect(); svg.classList.add('play'); }
+  if(still){ btn.hidden=true; } else { play(); }
+  btn.addEventListener('click',play);
+})();
+</script>
+<script data-goatcounter="https://alejandraacostap.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>window.GAME_TXT={steel:'acier inoxydable 304',layer:'région endommagée',hidden:'dommage : caché quelque part',start:'Appuie sur l’échantillon, tire vers l’arrière pour charger, vise la région orange et relâche.',trapped:' % des positrons piégés dans le dommage (',best:' % du meilleur possible). ',bull:'🎯 En plein dans le mille ! ',deep:'Trop profond : tire moins.',shallow:'Trop en surface : tire plus.',high:'Vise plus bas.',low:'Vise plus haut.',next:' Niveau suivant : une région plus petite.',out:' Plus de tirs. Niveau suivant.',lvlHidden:' : le dommage est caché. Utilise les impacts dorés pour le trouver.',lvl:' : région plus petite, même canon.',level:'Niveau ',r1:'Niveau expert en positrons ! Une place dans notre labo ?',r2:'Belle maîtrise du faisceau : au labo !',r3:'Pas mal ! Les vrais échantillons sont plus difficiles.',r4:'Continue à régler ce faisceau.',final:' Score final : ',again:'Rejouer',fire:'Tirer',pull:'tire vers l’arrière'};</script>
+<script>
+(function () {
+  const cv = document.getElementById('g-canvas'); if (!cv) return;
+  const ctx = cv.getContext('2d');
+  const $ = id => document.getElementById(id);
+  const eSl = $('g-energy'), aSl = $('g-aim'), fireBtn = $('g-fire'), msg = $('g-msg');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const TXT = {
+    steel: '304 stainless steel', layer: 'damaged region', hidden: 'damage: hidden somewhere',
+    start: 'Press on the sample, pull back to charge, aim at the orange region and release.',
+    trapped: ' % of positrons trapped in the damage (', best: ' % of the best possible). ',
+    bull: '🎯 Bullseye! ', deep: 'Too deep: pull back less.', shallow: 'Too shallow: pull back more.',
+    high: 'Aim lower.', low: 'Aim higher.',
+    next: ' Next level: a smaller region.', out: ' Out of shots. Next level.',
+    lvlHidden: ': the damage is hidden. Use the gold hits to find it.', lvl: ': smaller region, same gun.', level: 'Level ',
+    r1: 'Positron master. Want a spot in our lab?', r2: 'Solid beam work: ready for the lab.', r3: 'Not bad! The real samples are harder.', r4: 'Keep tuning that beam.',
+    final: ' Final score: ', again: 'Play again', fire: 'Fire', pull: 'pull back'
+  };
+  Object.assign(TXT, window.GAME_TXT || {});
+  const MAXZ = 1000, WIDTHS = [240, 170, 120, 90, 65], HEIGHTS = [.55, .45, .36, .29, .23];
+  const zbar = E => 5.06 * Math.pow(E, 1.6);            // nm, steel (rho = 7.9 g/cm3)
+  const z0 = E => zbar(E) / 0.8862;                       // Makhov, m = 2
+  const pdf = (E, z) => { const c = z0(E); return 2 * z / (c * c) * Math.exp(-((z / c) ** 2)); };
+  const erf = x => { const t = 1 / (1 + .3275911 * Math.abs(x)); const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - .284496736) * t + .254829592) * t * Math.exp(-x * x); return x >= 0 ? y : -y; };
+  let W = 600, H = 300, level, shots, total, best, reg, opt, dots, flying, busy, done, drag = null;
+  const T = 22, B = () => H - 34, L = () => Math.max(100, W * .17), R = () => W - 14, GX = 48;
+  const X = z => L() + z / MAXZ * (R() - L());
+  const aimY = () => T + 10 + (+aSl.value / 100) * (B() - T - 20);
+  const sig = z => 6 + .05 * (z / MAXZ) * (R() - L());   // beam spot + lateral straggling (px)
+  function frac(E, ay) {                                    // P(stop inside the region)
+    let f = 0; const n = 120, dz = (reg.b - reg.a) / n;
+    for (let i = 0; i < n; i++) { const z = reg.a + (i + .5) * dz, s = sig(z) * Math.SQRT2;
+      f += pdf(E, z) * dz * .5 * (erf((reg.y1 - ay) / s) - erf((reg.y0 - ay) / s)); }
+    return f;
+  }
+  function col(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#7A2238'; }
+  function newLevel() {
+    const w = WIDTHS[level - 1], h = HEIGHTS[level - 1] * (B() - T);
+    const a = 40 + Math.random() * (650 - w), y0 = T + 6 + Math.random() * (B() - T - 12 - h);
+    reg = { a, b: a + w, y0, y1: y0 + h };
+    const yc = (reg.y0 + reg.y1) / 2; opt = 0;
+    for (let E = 0.5; E <= 25; E += 0.1) opt = Math.max(opt, frac(E, yc));
+    shots = 3; best = 0; dots = []; flying = []; hud();
+  }
+  function reset() { level = 1; total = 0; done = false; fireBtn.textContent = TXT.fire; newLevel(); msg.textContent = TXT.start; draw(); }
+  function hud() { $('g-level').textContent = level; $('g-shots').textContent = shots; $('g-score').textContent = Math.round(total);
+    const E = +eSl.value; $('g-e').textContent = E.toFixed(1); $('g-depth').textContent = Math.round(zbar(E)); }
+  function size() { const dpr = window.devicePixelRatio || 1; W = cv.clientWidth; H = 300;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); if (reg) draw(); }
+  function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function draw() {
+    const main = col('--violet'), blue = col('--blue'), orange = col('--orange'), hit = col('--hit'), muted = col('--muted'), rule = col('--rule'), surface = col('--surface'), ink = col('--ink');
+    const font = getComputedStyle(document.body).fontFamily;
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = surface; ctx.fillRect(L(), T, R() - L(), B() - T);
+    ctx.strokeStyle = rule; ctx.lineWidth = 1; ctx.strokeRect(L() + .5, T + .5, R() - L() - 1, B() - T - 1);
+    ctx.fillStyle = muted; ctx.font = '600 11px ' + font; ctx.textAlign = 'right'; ctx.fillText(TXT.steel, R() - 8, T + 15); ctx.textAlign = 'left';
+    const hidden = level >= 4 && !done;
+    if (!hidden) {
+      const x0 = X(reg.a), x1 = X(reg.b);
+      ctx.fillStyle = hit; ctx.globalAlpha = .18; rr(x0, reg.y0, x1 - x0, reg.y1 - reg.y0, 8); ctx.fill();
+      ctx.globalAlpha = .9; ctx.setLineDash([4, 4]); ctx.strokeStyle = orange; rr(x0 + .5, reg.y0 + .5, x1 - x0 - 1, reg.y1 - reg.y0 - 1, 8); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+      ctx.fillStyle = orange; ctx.fillText(TXT.layer, Math.min(x0 + 6, R() - 100), reg.y1 + 14 > B() ? reg.y0 - 6 : reg.y1 + 14);
+    } else { ctx.fillStyle = muted; ctx.fillText(TXT.hidden, L() + 8, B() - 8); }
+    ctx.fillStyle = muted; ctx.font = '600 11px ' + font;
+    for (let z = 0; z <= MAXZ; z += (R() - L() < 320 ? 500 : 250)) { ctx.textAlign = z === MAXZ ? 'right' : 'center'; ctx.fillText(z + (z === MAXZ ? ' nm' : ''), z === MAXZ ? X(z) + 4 : X(z), H - 12); ctx.fillRect(X(z), B(), 1, 5); }
+    ctx.textAlign = 'left';
+    for (const d of dots) { ctx.fillStyle = d.hit ? hit : blue; ctx.globalAlpha = d.hit ? 1 : .5; ctx.beginPath(); ctx.arc(X(d.z), d.y, d.hit ? 3.3 : 2.3, 0, 7); ctx.fill(); }
+    ctx.globalAlpha = 1;
+    // aim guide: from barrel to mean stopping depth, with the 10-90 % spread
+    const E = +eSl.value, ay = aimY(), c = z0(E), zq = q => Math.min(MAXZ, c * Math.sqrt(-Math.log(1 - q)));
+    ctx.strokeStyle = main; ctx.lineWidth = 1.5; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(GX + 26, ay); ctx.lineTo(X(Math.min(zbar(E), MAXZ)), ay); ctx.stroke(); ctx.setLineDash([]);
+    ctx.globalAlpha = .25; ctx.fillStyle = main; rr(X(zq(.1)), ay - 5, Math.max(4, X(zq(.9)) - X(zq(.1))), 10, 5); ctx.fill(); ctx.globalAlpha = 1;
+    const mx = X(Math.min(zbar(E), MAXZ)); ctx.strokeStyle = main; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(mx, ay, 7, 0, 7); ctx.moveTo(mx - 11, ay); ctx.lineTo(mx + 11, ay); ctx.moveTo(mx, ay - 11); ctx.lineTo(mx, ay + 11); ctx.stroke();
+    // positron gun on a rail
+    ctx.strokeStyle = rule; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(GX - 6, T + 4); ctx.lineTo(GX - 6, B() - 4); ctx.stroke();
+    const pull = drag ? drag.pull : 0, back = pull * 18;
+    if (drag) { ctx.fillStyle = rule; rr(GX - 22, ay + 20, 48, 6, 3); ctx.fill(); ctx.fillStyle = hit; rr(GX - 22, ay + 20, Math.max(6, 48 * pull), 6, 3); ctx.fill(); }
+    ctx.fillStyle = main; rr(GX - 20 - back, ay - 14, 38, 28, 8); ctx.fill(); rr(GX + 16 - back, ay - 5, 14, 10, 3); ctx.fill();
+    ctx.fillStyle = col('--paper'); ctx.font = '700 12px ' + font; ctx.textAlign = 'center'; ctx.fillText('e⁺', GX - 1 - back, ay + 4);
+    ctx.fillStyle = ink; ctx.font = '700 11px ' + font; ctx.fillText(E.toFixed(1) + ' keV', GX + 4, ay < T + 30 ? ay + 30 : ay - 20); ctx.textAlign = 'left';
+    if (!dots.length && !drag && !busy && !done) { ctx.fillStyle = muted; ctx.font = '600 11px ' + font; ctx.fillText('← ' + TXT.pull, L() + 8, T + 15); }
+    // flying positrons and gamma flashes
+    const now = performance.now();
+    for (const f of flying) {
+      const k = Math.min(1, (now - f.t0) / f.dur); if (k <= 0) continue;
+      const x = GX + 30 + (X(f.z) - GX - 30) * k, y = f.ay + (f.y - f.ay) * k;
+      if (k < 1) { ctx.fillStyle = main; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 7); ctx.fill(); }
+      else if (f.hit && now - f.t0 - f.dur < 350) { const g = (now - f.t0 - f.dur) / 350; ctx.strokeStyle = hit; ctx.globalAlpha = 1 - g; ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.moveTo(x - 14 * g, y - 10 * g); ctx.lineTo(x + 14 * g, y + 10 * g); ctx.stroke(); ctx.globalAlpha = 1; }
+    }
+  }
+  function gauss() { return Math.sqrt(-2 * Math.log(1 - Math.random())) * Math.cos(2 * Math.PI * Math.random()); }
+  function fire() {
+    if (done) { reset(); return; }
+    if (busy || shots <= 0) return;
+    busy = true; fireBtn.disabled = true;
+    const E = +eSl.value, ay = aimY(), t = performance.now(), N = 60; flying = [];
+    for (let i = 0; i < N; i++) {
+      const z = Math.min(z0(E) * Math.sqrt(-Math.log(1 - Math.random())), MAXZ - 2);
+      const y = Math.max(T + 3, Math.min(B() - 3, ay + gauss() * sig(z)));
+      flying.push({ z, y, ay, hit: z >= reg.a && z <= reg.b && y >= reg.y0 && y <= reg.y1, t0: t + (still ? -1e4 : i * 16), dur: still ? 1 : 480 });
+    }
+    const end = t + (still ? 0 : N * 16 + 480 + 360);
+    (function loop() { draw(); if (performance.now() < end) return requestAnimationFrame(loop);
+      flying.forEach(f => dots.push({ z: f.z, y: f.y, hit: f.hit })); flying = []; finishShot(E, ay); })();
+  }
+  function finishShot(E, ay) {
+    const f = frac(E, ay), pct = Math.min(100, Math.round(f / opt * 100));
+    shots--; const prev = best; best = Math.max(best, pct); total += best - prev;
+    let text = Math.round(f * 100) + TXT.trapped + pct + TXT.best;
+    if (pct >= 85) text = TXT.bull + text;
+    else { const zm = zbar(E), yc = (reg.y0 + reg.y1) / 2, hh = (reg.y1 - reg.y0) / 2;
+      if (zm > reg.b || zm < reg.a || Math.abs(ay - yc) < hh * .6) text += zm > (reg.a + reg.b) / 2 ? TXT.deep : TXT.shallow;
+      if (Math.abs(ay - yc) >= hh * .6) text += ' ' + (ay < yc ? TXT.high : TXT.low); }
+    if (pct >= 85 || shots === 0) {
+      if (level === 5) { done = true; hud(); draw(); endGame(text); busy = false; fireBtn.disabled = false; return; }
+      text += pct >= 85 ? TXT.next : TXT.out; msg.textContent = text; hud(); draw();
+      setTimeout(() => { level++; newLevel(); draw(); msg.textContent = TXT.level + level + (level >= 4 ? TXT.lvlHidden : TXT.lvl); busy = false; fireBtn.disabled = false; }, 1800);
+    } else { msg.textContent = text; hud(); draw(); busy = false; fireBtn.disabled = false; }
+  }
+  function endGame(last) { const s = Math.round(total);
+    msg.textContent = last + TXT.final + s + '/500. ' + (s >= 450 ? TXT.r1 : s >= 330 ? TXT.r2 : s >= 200 ? TXT.r3 : TXT.r4); fireBtn.textContent = TXT.again; }
+  // pull-back-and-release controls
+  const PULL = 170;                                   // px of drag for full energy
+  function local(e) { const r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  function setAimFromY(y) { aSl.value = Math.max(0, Math.min(100, (y - T - 10) / (B() - T - 20) * 100)); }
+  cv.addEventListener('pointerdown', e => {
+    if (busy) return; if (done) { reset(); return; }
+    const p = local(e); cv.setPointerCapture(e.pointerId); cv.classList.add('dragging');
+    drag = { x0: p.x, pull: 0 }; setAimFromY(p.y); eSl.value = 0.5; hud(); draw(); e.preventDefault();
+  });
+  cv.addEventListener('pointermove', e => {
+    if (!drag) return; const p = local(e);
+    drag.pull = Math.max(0, Math.min(1, (drag.x0 - p.x) / PULL));
+    eSl.value = (0.5 + 24.5 * Math.pow(drag.pull, 0.625)).toFixed(1);   // depth grows ~linearly with pull
+    setAimFromY(p.y); hud(); draw();
+  });
+  function release(e) { if (!drag) return; const p = drag.pull; drag = null; cv.classList.remove('dragging'); draw();
+    if (p > 0.03) fire(); else { msg.textContent = TXT.start; } }
+  cv.addEventListener('pointerup', release); cv.addEventListener('pointercancel', () => { drag = null; cv.classList.remove('dragging'); draw(); });
+  eSl.addEventListener('input', () => { hud(); if (!busy) draw(); });
+  aSl.addEventListener('input', () => { if (!busy) draw(); });
+  fireBtn.addEventListener('click', fire);
+  window.addEventListener('resize', size);
+  if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
+  size(); reset();
+})();
+</script>
+</body>
+</html>
