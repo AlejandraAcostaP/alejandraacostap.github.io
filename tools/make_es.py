@@ -11,7 +11,7 @@ T=[
 ('<meta property="og:type" content="website">','<meta property="og:type" content="website">\n<meta property="og:locale" content="es_CO">'),
 ('aria-label="Sections"','aria-label="Secciones"'),
 # nav
-('<li><a class="lang" href="es/" hreflang="es" lang="es">ES</a></li>','<li><a class="lang" href="../" hreflang="en" lang="en">EN</a></li>'),
+('<li class="langs"><a class="lang" href="es/" hreflang="es" lang="es">ES</a> <a class="lang" href="fr/" hreflang="fr" lang="fr">FR</a></li>','<li class="langs"><a class="lang" href="../" hreflang="en" lang="en">EN</a> <a class="lang" href="../fr/" hreflang="fr" lang="fr">FR</a></li>'),
 ('<a href="#research">Research</a>','<a href="#research">Investigación</a>'),
 ('<a href="#path">My path</a>','<a href="#path">Mi camino</a>'),
 ('<a href="#experience">Experience</a>','<a href="#experience">Experiencia</a>'),
@@ -202,6 +202,17 @@ T=[
 ("'That one got trapped in a vacancy and lived a bit longer.'","'Ese quedó atrapado en una vacancia y vivió un poco más.'"),
 ("'Positrons you fired: '","'Positrones disparados: '"),
 ("'. Your detector is getting good statistics.'","'. Tu detector ya tiene buena estadística.'"),
+# map of Colombia (My path)
+('Map of Colombia with a pin on Soacha, next to Bogotá, in the centre of the country.','Mapa de Colombia con un marcador en Soacha, junto a Bogotá, en el centro del país.'),
+('>Caribbean Sea<','>Mar Caribe<'),
+('>Pacific Ocean<','>Océano Pacífico<'),
+('>BRAZIL<','>BRASIL<'),
+('>PERU<','>PERÚ<'),
+('>PANAMA<','>PANAMÁ<'),
+('>next to Bogotá<','>junto a Bogotá<'),
+('>ECUADOR<','>ECUADOR<'),
+('>COLOMBIA<','>COLOMBIA<'),
+('<b>Soacha, Cundinamarca.</b> Where I grew up, just south-west of Bogotá, on the Andean plateau at 2,600 m.','<b>Soacha, Cundinamarca.</b> Donde crecí, justo al suroccidente de Bogotá, en el altiplano andino a 2.600\u00a0m.'),
 ]
 def tr(s, pairs, strict=True):
     miss=[a for a,b in pairs if a not in s]
